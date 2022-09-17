@@ -6,10 +6,12 @@ $
 
 
 
-metodo hola
+funcion hola cadena
 retornar <"hola">;
-fin_metodo
+fin_funcion
 va->gha;
+
+ejecutar hola("h",7);
 %
 fin
 

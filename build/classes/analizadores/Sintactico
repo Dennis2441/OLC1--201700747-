@@ -44,7 +44,7 @@ non terminal CONDICIONAL_MULTIPLE;
 non terminal CONDICIONAL_FOR;
 non terminal CONDICIONAL_WHILE;
 non terminal CONDICIONAL_DOWHILE,CONDICIONAL_METODO,CONDICIONAL_FUNCION;
-non terminal IF_ELSE,EXPRESION,EXPRESION2,COMENTARIO,RETURN;
+non terminal IF_ELSE,EXPRESION,METODO_EXPRE,COMENTARIO,RETURN,LLAMADA;
 
 
 precedence left MAS,MENOS;
@@ -98,13 +98,65 @@ RETURN SENTENCIA |
 RETURN |
 
 CONDICIONAL_METODO SENTENCIA|
-CONDICIONAL_METODO
+CONDICIONAL_METODO|
+CONDICIONAL_FUNCION SENTENCIA|
+CONDICIONAL_FUNCION|
+LLAMADA SENTENCIA|
+LLAMADA
+
+
 ;
 
 
 
-CONDICIONAL_METODO::=
-Metodo EXPRESION2:a{:
+
+
+LLAMADA::=
+EJECUTAR iDENTIFICADOR:a EXPRESION:b{:
+Ventana.python=Ventana.python+tab+a+b+""+"\n";
+:}
+;
+
+METODO_EXPRE::=
+iDENTIFICADOR:a METODO_EXPRE:b{:
+a=a+b;
+RESULT=a;
+:}|COMA:a METODO_EXPRE:b {:
+a=a+b;
+RESULT=a;
+:}
+|PARIZQ:a METODO_EXPRE:b {:
+a=a+b;
+RESULT=a;
+:}
+
+|PARDER:a  {:
+
+RESULT=a;
+:}|cADENA:a EXPRESION:b {:
+a=a+b;
+RESULT=a;
+:}|DECIMAL:a EXPRESION:b {:
+a=a+b;
+RESULT=a;
+:}|Op_booleano:a EXPRESION:b {:
+a=a+b;
+RESULT=a;
+:}|ENTERO:a EXPRESION:b {:
+a=a+b;
+RESULT=a;
+:}| MENOS EXPRESION:b {:
+String a="-"+b;
+RESULT=a;
+:}|cHAR:a EXPRESION:b {:
+a=a+b;
+RESULT=a;
+:}
+
+;
+
+CONDICIONAL_FUNCION::=
+Funcion iDENTIFICADOR:a T_dato:b {:
 if(contador==1){
 tab="";
 Ventana.python=Ventana.python+tab;
@@ -120,9 +172,86 @@ for (int i = 0; i < contador; i++) {
 }
 
 contador=contador+1;
-Ventana.python=Ventana.python+"def"+a+":";
+Ventana.python=Ventana.python+"def "+a+"()"+":"+"\n";
 :}
 
+|
+
+Funcion iDENTIFICADOR:a T_dato:c Con_parametros METODO_EXPRE:b{:
+if(contador==1){
+tab="";
+Ventana.python=Ventana.python+tab;
+tab="   ";
+}else{
+
+
+Ventana.python=Ventana.python+tab;
+tab="";
+for (int i = 0; i < contador; i++) {
+            tab=tab+"   ";   
+}
+}
+
+contador=contador+1;
+Ventana.python=Ventana.python+"def "+a+""+b+":"+"\n";
+:}
+
+|Fin_funcion{:
+contador=contador-1;
+ if(contador==1){
+tab="";
+}else{ 
+
+tab="";
+       for (int i = 0; i < contador; i++) {
+            tab=tab+"   ";   
+}
+}
+:}
+
+
+;
+
+CONDICIONAL_METODO::=
+Metodo iDENTIFICADOR:a Con_parametros METODO_EXPRE:b{:
+if(contador==1){
+tab="";
+Ventana.python=Ventana.python+tab;
+tab="   ";
+}else{
+
+
+Ventana.python=Ventana.python+tab;
+tab="";
+for (int i = 0; i < contador; i++) {
+            tab=tab+"   ";   
+}
+}
+
+contador=contador+1;
+Ventana.python=Ventana.python+"def "+a+""+b+":"+"\n";
+:}
+
+|
+
+Metodo iDENTIFICADOR:a {:
+if(contador==1){
+tab="";
+Ventana.python=Ventana.python+tab;
+tab="   ";
+}else{
+
+
+Ventana.python=Ventana.python+tab;
+tab="";
+for (int i = 0; i < contador; i++) {
+            tab=tab+"   ";   
+}
+}
+
+contador=contador+1;
+Ventana.python=Ventana.python+"def "+a+"()"+":"+"\n";
+:}
 |Fin_metodo{:
 contador=contador-1;
  if(contador==1){
@@ -136,6 +265,8 @@ tab="";
 }
 :}
 ;
+
+
 
 
 
