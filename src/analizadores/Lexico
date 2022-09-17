@@ -118,5 +118,5 @@ CHAR=\'(\\\"|\\n|\\t|\\r|\\\\|[^\"])\'
     System.out.println("Este es un error lexico: "+yytext()+
     ", en la linea: "+yyline+", en la columna: "+yychar);
         Ventana.errorlexico=Ventana.errorlexico+"Este es un error lexico: "+yytext()+
-    ", en la linea: "+yyline+", en la columna: "+yychar;
+    ", en la linea: "+yyline+", en la columna: "+yychar+"\n";
 }
