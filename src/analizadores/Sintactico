@@ -85,7 +85,7 @@ CONDICIONAL_IF |
  CONDICIONAL_MULTIPLE|
 CONDICIONAL_FOR SENTENCIA|
 CONDICIONAL_FOR|
-CONDICIONAL_WHILE SENTENCIA|
+CONDICIONAL_WHILE SENTENCIA{:System.out.println(Ventana.python);:}|
 CONDICIONAL_WHILE
 |
 CONDICIONAL_DOWHILE SENTENCIA|
@@ -103,36 +103,39 @@ Repetir:a{:
 
 
 CONDICIONAL_WHILE::=
-Mientras EXPRESION:a{:
+Mientras EXPRESION:a {:
 
 if(contador==1){
 tab="";
 Ventana.python=Ventana.python+tab;
 tab="   ";
 }else{
-    Ventana.python=Ventana.python+tab;
+Ventana.python=Ventana.python+tab;
     tab="";
  for (int i = 0; i < contador; i++) {
             tab=tab+"   ";   
 }
-}
 
-contador=contador+1;
+}contador=contador+1;
 Ventana.python=Ventana.python+"while ("+a+"):"+"\n";
+System.out.println(Ventana.python);
 
+:}
 
-:}|
-
-Fin_mientras{:
+|Fin_mientras:a{:
+String hola=a;
+contador=contador-1;
  if(contador==1){
 tab="";
 }else{ 
-contador=contador-1;
+
 tab="";
        for (int i = 0; i < contador; i++) {
             tab=tab+"   ";   
 }
 }
+
+System.out.println(Ventana.python);
 :}
 
 ;

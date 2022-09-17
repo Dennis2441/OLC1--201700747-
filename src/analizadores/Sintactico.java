@@ -763,7 +763,7 @@ System.out.println(Ventana.python);
           case 16: // SENTENCIA ::= CONDICIONAL_WHILE SENTENCIA 
             {
               Object RESULT =null;
-
+		System.out.println(Ventana.python);
               CUP$Sintactico$result = parser.getSymbolFactory().newSymbol("SENTENCIA",1, ((java_cup.runtime.Symbol)CUP$Sintactico$stack.elementAt(CUP$Sintactico$top-1)), ((java_cup.runtime.Symbol)CUP$Sintactico$stack.peek()), RESULT);
             }
           return CUP$Sintactico$result;
@@ -823,16 +823,15 @@ tab="";
 Ventana.python=Ventana.python+tab;
 tab="   ";
 }else{
-    Ventana.python=Ventana.python+tab;
+Ventana.python=Ventana.python+tab;
     tab="";
  for (int i = 0; i < contador; i++) {
             tab=tab+"   ";   
 }
-}
 
-contador=contador+1;
+}contador=contador+1;
 Ventana.python=Ventana.python+"while ("+a+"):"+"\n";
-
+System.out.println(Ventana.python);
 
 
               CUP$Sintactico$result = parser.getSymbolFactory().newSymbol("CONDICIONAL_WHILE",14, ((java_cup.runtime.Symbol)CUP$Sintactico$stack.elementAt(CUP$Sintactico$top-1)), ((java_cup.runtime.Symbol)CUP$Sintactico$stack.peek()), RESULT);
@@ -843,16 +842,23 @@ Ventana.python=Ventana.python+"while ("+a+"):"+"\n";
           case 22: // CONDICIONAL_WHILE ::= Fin_mientras 
             {
               Object RESULT =null;
+		int aleft = ((java_cup.runtime.Symbol)CUP$Sintactico$stack.peek()).left;
+		int aright = ((java_cup.runtime.Symbol)CUP$Sintactico$stack.peek()).right;
+		String a = (String)((java_cup.runtime.Symbol) CUP$Sintactico$stack.peek()).value;
 		
+String hola=a;
+contador=contador-1;
  if(contador==1){
 tab="";
 }else{ 
-contador=contador-1;
+
 tab="";
        for (int i = 0; i < contador; i++) {
             tab=tab+"   ";   
 }
 }
+
+System.out.println(Ventana.python);
 
               CUP$Sintactico$result = parser.getSymbolFactory().newSymbol("CONDICIONAL_WHILE",14, ((java_cup.runtime.Symbol)CUP$Sintactico$stack.peek()), ((java_cup.runtime.Symbol)CUP$Sintactico$stack.peek()), RESULT);
             }
