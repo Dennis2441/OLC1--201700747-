@@ -1,6 +1,6 @@
 package analizadores;
 import java_cup.runtime.Symbol; 
-
+import analizadores.Ventana;
 %% 
 %class Lexico
 %public 
@@ -117,4 +117,6 @@ CHAR=\'(\\\"|\\n|\\t|\\r|\\\\|[^\"])\'
 . {
     System.out.println("Este es un error lexico: "+yytext()+
     ", en la linea: "+yyline+", en la columna: "+yychar);
+        Ventana.errorlexico="Este es un error lexico: "+yytext()+
+    ", en la linea: "+yyline+", en la columna: "+yychar;
 }

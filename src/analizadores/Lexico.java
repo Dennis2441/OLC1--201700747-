@@ -1,5 +1,6 @@
 package analizadores;
 import java_cup.runtime.Symbol; 
+import analizadores.Ventana;
 
 
 public class Lexico implements java_cup.runtime.Scanner {
@@ -866,6 +867,8 @@ public class Lexico implements java_cup.runtime.Scanner {
 						{
     System.out.println("Este es un error lexico: "+yytext()+
     ", en la linea: "+yyline+", en la columna: "+yychar);
+        Ventana.errorlexico="Este es un error lexico: "+yytext()+
+    ", en la linea: "+yyline+", en la columna: "+yychar;
 }
 					case -20:
 						break;
@@ -1110,6 +1113,8 @@ public class Lexico implements java_cup.runtime.Scanner {
 						{
     System.out.println("Este es un error lexico: "+yytext()+
     ", en la linea: "+yyline+", en la columna: "+yychar);
+        Ventana.errorlexico="Este es un error lexico: "+yytext()+
+    ", en la linea: "+yyline+", en la columna: "+yychar;
 }
 					case -80:
 						break;
@@ -1125,6 +1130,8 @@ public class Lexico implements java_cup.runtime.Scanner {
 						{
     System.out.println("Este es un error lexico: "+yytext()+
     ", en la linea: "+yyline+", en la columna: "+yychar);
+        Ventana.errorlexico="Este es un error lexico: "+yytext()+
+    ", en la linea: "+yyline+", en la columna: "+yychar;
 }
 					case -83:
 						break;
@@ -1136,6 +1143,8 @@ public class Lexico implements java_cup.runtime.Scanner {
 						{
     System.out.println("Este es un error lexico: "+yytext()+
     ", en la linea: "+yyline+", en la columna: "+yychar);
+        Ventana.errorlexico="Este es un error lexico: "+yytext()+
+    ", en la linea: "+yyline+", en la columna: "+yychar;
 }
 					case -85:
 						break;

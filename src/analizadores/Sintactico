@@ -102,11 +102,23 @@ CONDICIONAL_METODO|
 CONDICIONAL_FUNCION SENTENCIA|
 CONDICIONAL_FUNCION|
 LLAMADA SENTENCIA|
-LLAMADA
+LLAMADA|
+IMPRESION SENTENCIA|
+IMPRESION
 
 
 ;
 
+
+IMPRESION::=
+IMPRIMIR EXPRESION:a{:
+Ventana.python=Ventana.python+tab+"print("+a+") \n";
+:}
+|
+IMPRIMIR_NL EXPRESION:a{:
+Ventana.python=Ventana.python+tab+"print("+a+") \n";
+:}
+;
 
 
 

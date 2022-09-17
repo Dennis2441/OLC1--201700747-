@@ -25,6 +25,7 @@ public class Ventana extends javax.swing.JFrame {
     public static String python="";
     public static String variable="";
    public static  String pathi="";
+   public static String errorlexico="";
     public Ventana() {
         initComponents();
     }
