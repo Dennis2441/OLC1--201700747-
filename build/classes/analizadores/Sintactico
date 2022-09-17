@@ -21,7 +21,8 @@ parser code
 public int contadorelif=1;
 public int contadorsegun=0;
   public String tab="";
-public boolean verswitch,ifbo=false;
+public String dowh="";
+public boolean verswitch,ifbo,dow=false;
 :}
 terminal String PTCOMA,PARIZQ,PARDER,CORIZQ,CORDER,FLECHA,Fin_segun,Fin_case;
 terminal String MAS,MENOS,POR,DIVIDIDO,INGRESAR,intera,interc,INCREMENTAL;
@@ -42,8 +43,8 @@ non terminal CONDICIONAL_IF;
 non terminal CONDICIONAL_MULTIPLE;
 non terminal CONDICIONAL_FOR;
 non terminal CONDICIONAL_WHILE;
-non terminal CONDICIONAL_DOWHILE;
-non terminal IF_ELSE,EXPRESION,COMENTARIO;
+non terminal CONDICIONAL_DOWHILE,CONDICIONAL_METODO,CONDICIONAL_FUNCION;
+non terminal IF_ELSE,EXPRESION,EXPRESION2,COMENTARIO,RETURN;
 
 
 precedence left MAS,MENOS;
@@ -89,13 +90,65 @@ CONDICIONAL_WHILE SENTENCIA{:System.out.println(Ventana.python);:}|
 CONDICIONAL_WHILE
 |
 CONDICIONAL_DOWHILE SENTENCIA|
-CONDICIONAL_DOWHILE
 
+
+CONDICIONAL_DOWHILE|
+
+RETURN SENTENCIA |
+RETURN |
+
+CONDICIONAL_METODO SENTENCIA|
+CONDICIONAL_METODO
+;
+
+
+
+CONDICIONAL_METODO::=
+Metodo EXPRESION2:a{:
+if(contador==1){
+tab="";
+Ventana.python=Ventana.python+tab;
+tab="   ";
+}else{
+
+
+Ventana.python=Ventana.python+tab;
+tab="";
+for (int i = 0; i < contador; i++) {
+            tab=tab+"   ";   
+}
+}
+
+contador=contador+1;
+Ventana.python=Ventana.python+"def"+a+":";
+:}
+
+|Fin_metodo{:
+contador=contador-1;
+ if(contador==1){
+tab="";
+}else{ 
+
+tab="";
+       for (int i = 0; i < contador; i++) {
+            tab=tab+"   ";   
+}
+}
+:}
+;
+
+
+
+RETURN::=
+
+Retornar EXPRESION:a{:
+Ventana.python=Ventana.python+tab+"return"+a+"\n";
+:}
 ;
 
 CONDICIONAL_DOWHILE::=
 Repetir:a{:
-
+            dow=true;
 :}
 ;
 

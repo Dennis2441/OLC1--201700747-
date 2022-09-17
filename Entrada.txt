@@ -6,18 +6,9 @@ $
 
 
 
-
-mientras a<15 && a>0 hacer
-
-Ingresar _v2_ coMo caracter cOn_valor 2; 
-
-Ingresar _v2_ coMo caracter cOn_valor 2; 
-
-Ingresar _v2_ coMo caracter cOn_valor 2; 
-  va->hola;
-
-
-fin_mientras
+metodo hola
+retornar <"hola">;
+fin_metodo
 va->gha;
 %
 fin
