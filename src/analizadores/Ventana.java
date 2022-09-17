@@ -11,6 +11,8 @@ import java.nio.file.Files;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import proyectocupjlexwindows.ProyectoCupJlexWindows;
 /**
  *
@@ -156,6 +158,14 @@ public class Ventana extends javax.swing.JFrame {
            
         } else {
             ProyectoCupJlexWindows.interpretar(pathi);
+        }
+        
+        if (errorlexico=="") {
+            
+        }else{
+            JFrame jFrame = new JFrame();
+
+         JOptionPane.showMessageDialog(jFrame,errorlexico);
         }
         
     }//GEN-LAST:event_py1ActionPerformed
