@@ -1,0 +1,19 @@
+inicio
+$
+$
+
+Ingresar _v2_ coMo caracter cOn_valor 2; %
+
+
+
+
+mientras a<15 && a>0 hacer
+va -> 7
+
+fin_mientras
+
+va->7
+
+%
+fin
+

@@ -1,0 +1,22 @@
+"potencia" {return new Symbol(sym.Potencia,yyline,yychar, yytext());}
+"modulo" {return new Symbol(sym.Modulo,yyline,yychar, yytext());}
+"Si" {return new Symbol(sym.Condicional_si,yyline,yychar, yytext());}
+"o_si " {return new Symbol(sym.O_si,yyline,yychar, yytext());}
+"fin_si" {return new Symbol(sym.Fin_si,yyline,yychar, yytext());}
+"de_lo_contrario" {return new Symbol(sym.De_lo_contrario,yyline,yychar, yytext());}
+"segun" {return new Symbol(sym.Segun,yyline,yychar, yytext());}
+"hacer" {return new Symbol(sym.Hacer,yyline,yychar, yytext());}
+"entonces" {return new Symbol(sym.Entonces,yyline,yychar, yytext());}
+"para" {return new Symbol(sym.Para,yyline,yychar, yytext());}
+"fin_para" {return new Symbol(sym.Fin_para,yyline,yychar, yytext());}
+"mientras" {return new Symbol(sym.Mientras,yyline,yychar, yytext());}
+"fin_mientras" {return new Symbol(sym.Fin_mientras,yyline,yychar, yytext());}
+"repetir" {return new Symbol(sym.Repetir,yyline,yychar, yytext());}
+"hasta_que" {return new Symbol(sym.Hasta_que,yyline,yychar, yytext());}
+"retornar" {return new Symbol(sym.Retornar,yyline,yychar, yytext());}
+"metodo" {return new Symbol(sym.Metodo,yyline,yychar, yytext());}
+"fin_metodo" {return new Symbol(sym.Fin_metodo,yyline,yychar, yytext());}
+"funcion" {return new Symbol(sym.Funcion,yyline,yychar, yytext());}
+"fin_funcion" {return new Symbol(sym.Fin_funcion,yyline,yychar, yytext());}
+"con_parametros" {return new Symbol(sym.Con_parametros,yyline,yychar, yytext());}
+//"" {return new Symbol(sym.,yyline,yychar, yytext());}

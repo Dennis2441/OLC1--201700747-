@@ -1,0 +1,565 @@
+package analizadores; 
+import java_cup.runtime.*;
+import analizadores.Ventana;
+parser code 
+{:  
+    /**
+     * Método al que se llama automáticamente ante algún error sintactico.
+     **/ 
+     
+    public void syntax_error(Symbol s){ 
+        System.out.println("Error Sintáctico en la Línea " + (s.left) +
+        " Columna "+s.right+ ". No se esperaba este componente: " +s.value+"."); 
+    } 
+  public void unrecovered_syntax_error(Symbol s) throws java.lang.Exception{ 
+        System.out.println("Error síntactico irrecuperable en la Línea " + 
+        (s.left)+ " Columna "+s.right+". Componente " + s.value + 
+        " no reconocido."); 
+    }  
+
+ public int contador=1;
+public int contadorelif=1;
+public int contadorsegun=0;
+  public String tab="";
+public boolean verswitch,ifbo=false;
+:}
+terminal String PTCOMA,PARIZQ,PARDER,CORIZQ,CORDER,FLECHA,Fin_segun,Fin_case;
+terminal String MAS,MENOS,POR,DIVIDIDO,INGRESAR,intera,interc,INCREMENTAL;
+terminal String ENTERO,COMO,IMPRIMIR,IMPRIMIR_NL,EJECUTAR,Fin_osi,Hasta,menor,mayor;
+terminal String DECIMAL,cHAR,CON_VALOR, Op_booleano,COMA,Mayorigual,menorigual,esiGual,esdifeErente;
+
+terminal String UMENOS,T_dato;
+terminal String REVALUAR,iDENTIFICADOR,cADENA,INICIO,FIN,admiraciona,admiracionb,andd;
+terminal String Condicional_si,Para,O_si,Segun,Hacer,Metodo,Modulo,Fin_si,Repetir,Funcion,Entonces,Retornar,Potencia,Mientras,Fin_para,Hasta_que,Fin_metodo,Fin_funcion,Fin_mientras,Con_parametros,De_lo_contrario,cM_LINE,cM_MULT;
+
+non terminal ini,SENTENCIA,SENTENCIA2;
+
+
+non terminal ASIGNACION,ASIGNACION1,IMPRESION,IMPRESIONES;
+non terminal DECLARACION,DECLARACION1;
+non terminal OPERACIONES,OPERACION;
+non terminal CONDICIONAL_IF;
+non terminal CONDICIONAL_MULTIPLE;
+non terminal CONDICIONAL_FOR;
+non terminal CONDICIONAL_WHILE;
+non terminal CONDICIONAL_DOWHILE;
+non terminal IF_ELSE,EXPRESION,COMENTARIO;
+
+
+precedence left MAS,MENOS;
+precedence left POR,DIVIDIDO;
+precedence right UMENOS;
+
+start with ini;
+
+ini::=
+INICIO SENTENCIA  FIN{:   System.out.println(Ventana.python);:}
+
+;
+
+
+   
+SENTENCIA::= 
+
+DECLARACION:a SENTENCIA  
+|
+
+
+DECLARACION|
+ASIGNACION SENTENCIA 
+ |
+   ASIGNACION|
+ IMPRESIONES SENTENCIA  |
+   IMPRESIONES|
+COMENTARIO  SENTENCIA |
+COMENTARIO|
+CONDICIONAL_IF SENTENCIA  {:
+
+
+
+System.out.println(Ventana.python);
+:}|
+CONDICIONAL_IF |
+
+ CONDICIONAL_MULTIPLE SENTENCIA|
+ CONDICIONAL_MULTIPLE|
+CONDICIONAL_FOR SENTENCIA|
+CONDICIONAL_FOR|
+CONDICIONAL_WHILE SENTENCIA|
+CONDICIONAL_WHILE
+|
+CONDICIONAL_DOWHILE SENTENCIA|
+CONDICIONAL_DOWHILE
+
+;
+
+CONDICIONAL_DOWHILE::=
+Repetir:a{:
+
+:}
+;
+
+
+
+
+CONDICIONAL_WHILE::=
+Mientras EXPRESION:a{:
+
+if(contador==1){
+tab="";
+Ventana.python=Ventana.python+tab;
+tab="   ";
+}else{
+    Ventana.python=Ventana.python+tab;
+    tab="";
+ for (int i = 0; i < contador; i++) {
+            tab=tab+"   ";   
+}
+}
+
+contador=contador+1;
+Ventana.python=Ventana.python+"while ("+a+"):"+"\n";
+
+
+:}|
+
+Fin_mientras{:
+ if(contador==1){
+tab="";
+}else{ 
+contador=contador-1;
+tab="";
+       for (int i = 0; i < contador; i++) {
+            tab=tab+"   ";   
+}
+}
+:}
+
+;
+
+CONDICIONAL_FOR::=
+Para EXPRESION:a FLECHA EXPRESION:b Hasta EXPRESION:c {:
+Ventana.python=Ventana.python+"for "+a;
+contador=contador+1;
+
+for (int i = 0; i < contador; i++) {
+            tab=tab+"   ";   
+}
+
+
+:}
+;
+
+CONDICIONAL_MULTIPLE::=
+
+Segun EXPRESION:a{:
+
+System.out.println("entroooooo");
+
+
+
+System.out.println(a);
+
+
+
+
+System.out.println(Ventana.python);
+
+:}
+|Fin_segun{:
+if(contador==1){
+
+}else{
+contador=contador-1;
+}
+if(contadorsegun==-1){
+verswitch=false;
+}
+
+    if(contador==1){
+tab="";
+}else{ 
+
+tab="";
+       for (int i = 0; i < contador; i++) {
+            tab=tab+"   ";   
+}
+}
+
+:}
+|
+
+interc EXPRESION:a {:
+contadorsegun=contadorsegun+1;
+if(contador==1){ 
+
+     tab="";
+Ventana.python=Ventana.python+tab;
+
+for (int i = 0; i < contador; i++) {
+            tab=tab+"   ";   
+}
+}
+
+else {
+
+Ventana.python=Ventana.python+tab;
+tab="";
+
+       for (int i = 0; i < contador; i++) {
+            tab=tab+"   ";   
+}
+}
+contador=contador+1;
+if(verswitch==false){
+verswitch=true;
+Ventana.python=Ventana.python+"if "+a+":"+"\n";
+}else{
+Ventana.python=Ventana.python+"elif "+a+":"+"\n";
+}
+:}
+
+
+;
+
+
+
+
+
+
+
+
+CONDICIONAL_IF::=
+Condicional_si EXPRESION:a {:
+
+if (contador==1){
+tab="";
+Ventana.python=Ventana.python+tab;
+for (int i = 0; i < contador; i++) {
+            tab=tab+"   ";   
+}
+
+
+}else{
+Ventana.python=Ventana.python+tab;
+tab="";
+for (int i = 0; i < contador; i++) {
+            tab=tab+"   ";   
+}
+
+}
+
+
+
+contador=contador+1;
+Ventana.python=Ventana.python+"if "+a+":"+"\n";
+System.out.println(Ventana.python);
+
+
+ 
+
+:}|
+O_si EXPRESION:a{:
+
+if(contador==2){
+
+tab="";
+
+Ventana.python=Ventana.python+tab;
+for (int i = 0; i < contador; i++) {
+            tab=tab+"   ";   
+}
+
+}else{
+Ventana.python=Ventana.python+tab;
+tab="";
+for (int i = 0; i < contador; i++) {
+            tab=tab+"   ";   
+}
+}
+
+
+contador=contador+1;
+Ventana.python=Ventana.python+"elif "+a+":"+"\n";
+System.out.println(Ventana.python);
+:}
+|
+Fin_osi:a{:
+contador=contador-1;
+tab="";
+if(contador==2){
+tab="   ";
+
+}else{
+
+for (int i = 0; i < contador; i++) {
+            tab=tab+"   ";   
+
+
+}
+
+
+
+}
+:}
+|
+Fin_si:a {:
+
+if(contador==1){
+tab="";
+ifbo=false;
+}else{
+if(ifbo==true){
+contador=contador+1;
+}
+contador=contador-2;
+tab="";
+ifbo=true;
+for (int i = 0; i <contador; i++) {
+            tab=tab+"   ";   
+}
+}
+
+   
+:}
+    
+;
+
+
+DECLARACION::= 
+INGRESAR iDENTIFICADOR:a COMA DECLARACION1:b {:
+
+Ventana.python=Ventana.python+tab+a+","+b+"\n";
+
+:}|
+
+INGRESAR iDENTIFICADOR:a COMO T_dato  CON_VALOR EXPRESION:b   {:
+
+
+
+
+Ventana.python=Ventana.python+tab+a+"="+b+"\n";
+
+:}  
+
+
+;
+
+DECLARACION1::=
+ iDENTIFICADOR:a COMA DECLARACION1:b 
+{:
+a=a+","+b;
+RESULT=a;
+:}
+
+
+|
+
+ iDENTIFICADOR:a   COMO T_dato  CON_VALOR EXPRESION:b
+{:
+
+a=a+"="+b;
+RESULT=a;
+:}
+ 
+ 
+ 
+;
+
+
+ASIGNACION::=
+iDENTIFICADOR:a COMA ASIGNACION1:b {:
+
+Ventana.python=Ventana.python+tab+a+","+b+"\n";
+
+:}|
+iDENTIFICADOR:a FLECHA EXPRESION:b  {:
+Ventana.python=Ventana.python+tab+a+"="+b+"\n";
+
+:}
+;
+
+ASIGNACION1::=
+iDENTIFICADOR:a COMA ASIGNACION1:b 
+{:
+a=a+","+b;
+RESULT=a;
+:}
+|
+iDENTIFICADOR:a    FLECHA EXPRESION:b
+{:
+
+a=a+"="+b;
+RESULT=a;
+:}
+
+
+
+;
+
+EXPRESION::=
+
+cM_MULT:a {:
+RESULT=a;
+:}
+|cM_LINE:a {:
+RESULT=a;
+:}
+|ENTERO:a EXPRESION:b {:
+a=a+b;
+RESULT=a;
+:}
+|Op_booleano:a EXPRESION:b {:
+a=a+b;
+RESULT=a;
+:}
+| MENOS EXPRESION:b {:
+String a="-"+b;
+RESULT=a;
+:}
+|DECIMAL:a EXPRESION:b {:
+a=a+b;
+RESULT=a;
+:}
+
+|Modulo:a EXPRESION:b {:
+a=a+b;
+RESULT=a;
+:}
+
+
+|Mayorigual EXPRESION:b {:
+String aa=">="+b;
+RESULT=aa;
+:}
+
+|menorigual:a EXPRESION:b {:
+String aa="<="+b;
+RESULT=aa;
+:}
+
+|esiGual:a EXPRESION:b {:
+String aa="=="+b;
+System.out.println(aa);
+RESULT=aa;
+:}
+
+|intera:a EXPRESION:b{:
+String aa="";
+System.out.println(aa);
+RESULT=aa;
+:}
+
+|esdifeErente:a EXPRESION:b {:
+String aa="!="+b;
+RESULT=aa;
+:}
+
+
+|Potencia:a EXPRESION:b {:
+a=a+b;
+RESULT=a;
+:}
+
+|CORIZQ:a EXPRESION:b {:
+a=a+b;
+RESULT=a;
+:}
+
+|CORDER:a EXPRESION:b {:
+a=a+b;
+RESULT=a;
+:}
+
+|cADENA:a EXPRESION:b {:
+a=a+b;
+RESULT=a;
+:}
+
+|cHAR:a EXPRESION:b {:
+a=a+b;
+RESULT=a;
+:}
+
+|iDENTIFICADOR:a EXPRESION:b {:
+a=a+b;
+RESULT=a;
+:}
+
+|MAS:a EXPRESION:b {:
+a=a+b;
+RESULT=a;
+:}
+
+
+
+
+|POR:a EXPRESION:b {:
+a=a+b;
+RESULT=a;
+:}
+
+|DIVIDIDO:a EXPRESION:b {:
+a=a+b;
+RESULT=a;
+:}
+
+|PARIZQ:a EXPRESION:b {:
+a=a+b;
+RESULT=a;
+:}
+
+|PARDER:a EXPRESION:b {:
+a=a+b;
+RESULT=a;
+:}
+
+|COMA:a EXPRESION:b {:
+a=a+b;
+RESULT=a;
+:}
+
+|menor:a EXPRESION:b {:
+a=a+b;
+RESULT=a;
+:}
+|mayor:a EXPRESION:b {:
+a=a+b;
+RESULT=a;
+:}
+
+|admiracionb:a EXPRESION:b {:
+a=a+b;
+RESULT=a;
+:}
+
+|admiraciona:a EXPRESION:b {:
+a=a+b;
+RESULT=a;
+:}
+|PTCOMA {:
+String b="";
+RESULT=b;:}
+
+
+|Entonces {:
+String b="";
+System.out.println("llego");
+RESULT=b;:}|
+
+Hacer{:
+String b="";
+System.out.println("llegox2");
+RESULT=b;:}
+|
+Fin_si {:
+String b="";
+System.out.println("llego");
+RESULT=b;:}
+|andd:a EXPRESION:b {:
+a=" "+"and "+b;
+RESULT=a;
+:}
+
+;
+
