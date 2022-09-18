@@ -1,12 +1,8 @@
 inicio
 si _varB_ entonces
-	imprimir_nl "Estas definiendo bien los valores";
+	va->4;
 	ingresar _varaux_,v79 como Numero con_valor _variable1_2,6;
-	segun _varaux_ hacer
-		#0? entonces
-			imprimir_nl "el valor es_mayor_a 0 y menos a 2";
-		
-	fin_segun
+	
 fin_si
 ¿
 fin

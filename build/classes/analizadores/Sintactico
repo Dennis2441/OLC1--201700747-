@@ -532,7 +532,7 @@ for (int i = 0; i <contador; i++) {
 DECLARACION::= 
 INGRESAR iDENTIFICADOR:a COMA DECLARACION1:b {:
 
-Ventana.goolan=Ventana.goolan+tab3+"var "+a+","+declara;
+Ventana.goolan=Ventana.goolan+tab3+"var "+a+","+declara+"\n";
 declara="";
 Ventana.python=Ventana.python+tab+a+","+b+"\n";
 
@@ -542,7 +542,7 @@ INGRESAR iDENTIFICADOR:a COMO T_dato:p  CON_VALOR EXPRESION:b   {:
 
 
 
-Ventana.goolan=Ventana.goolan+tab3+"var "+a+" "+p+"="+b;
+Ventana.goolan=Ventana.goolan+tab3+"var "+a+" "+p+"="+b+"\n";
 System.out.println(Ventana.goolan);
 Ventana.python=Ventana.python+tab+a+"="+b+"\n";
 
@@ -579,26 +579,31 @@ RESULT=a;
 
 ASIGNACION::=
 iDENTIFICADOR:a COMA ASIGNACION1:b {:
-
+Ventana.goolan=Ventana.goolan+tab3+a+","+declara+"\n";
+declara="";
 Ventana.python=Ventana.python+tab+a+","+b+"\n";
 
 :}|
 iDENTIFICADOR:a FLECHA EXPRESION:b  {:
 Ventana.python=Ventana.python+tab+a+"="+b+"\n";
-
+  Ventana.goolan=Ventana.goolan+tab3+a+"="+b+"\n";
 :}
 ;
 
 ASIGNACION1::=
 iDENTIFICADOR:a COMA ASIGNACION1:b 
 {:
+String aux="";
+aux=declara;
+declara="";
+declara=a+","+aux;
 a=a+","+b;
 RESULT=a;
 :}
 |
 iDENTIFICADOR:a    FLECHA EXPRESION:b
 {:
-
+declara=a+"="+b;
 a=a+"="+b;
 RESULT=a;
 :}

@@ -1908,7 +1908,7 @@ for (int i = 0; i <contador; i++) {
 		Object b = (Object)((java_cup.runtime.Symbol) CUP$Sintactico$stack.peek()).value;
 		
 
-Ventana.goolan=Ventana.goolan+tab3+"var "+a+","+declara;
+Ventana.goolan=Ventana.goolan+tab3+"var "+a+","+declara+"\n";
 declara="";
 Ventana.python=Ventana.python+tab+a+","+b+"\n";
 
@@ -1934,7 +1934,7 @@ Ventana.python=Ventana.python+tab+a+","+b+"\n";
 
 
 
-Ventana.goolan=Ventana.goolan+tab3+"var "+a+" "+p+"="+b;
+Ventana.goolan=Ventana.goolan+tab3+"var "+a+" "+p+"="+b+"\n";
 System.out.println(Ventana.goolan);
 Ventana.python=Ventana.python+tab+a+"="+b+"\n";
 
@@ -1998,7 +1998,8 @@ RESULT=a;
 		int bright = ((java_cup.runtime.Symbol)CUP$Sintactico$stack.peek()).right;
 		Object b = (Object)((java_cup.runtime.Symbol) CUP$Sintactico$stack.peek()).value;
 		
-
+Ventana.goolan=Ventana.goolan+tab3+a+","+declara+"\n";
+declara="";
 Ventana.python=Ventana.python+tab+a+","+b+"\n";
 
 
@@ -2018,7 +2019,7 @@ Ventana.python=Ventana.python+tab+a+","+b+"\n";
 		Object b = (Object)((java_cup.runtime.Symbol) CUP$Sintactico$stack.peek()).value;
 		
 Ventana.python=Ventana.python+tab+a+"="+b+"\n";
-
+  Ventana.goolan=Ventana.goolan+tab3+a+"="+b+"\n";
 
               CUP$Sintactico$result = parser.getSymbolFactory().newSymbol("ASIGNACION",3, ((java_cup.runtime.Symbol)CUP$Sintactico$stack.elementAt(CUP$Sintactico$top-2)), ((java_cup.runtime.Symbol)CUP$Sintactico$stack.peek()), RESULT);
             }
@@ -2035,6 +2036,10 @@ Ventana.python=Ventana.python+tab+a+"="+b+"\n";
 		int bright = ((java_cup.runtime.Symbol)CUP$Sintactico$stack.peek()).right;
 		Object b = (Object)((java_cup.runtime.Symbol) CUP$Sintactico$stack.peek()).value;
 		
+String aux="";
+aux=declara;
+declara="";
+declara=a+","+aux;
 a=a+","+b;
 RESULT=a;
 
@@ -2053,7 +2058,7 @@ RESULT=a;
 		int bright = ((java_cup.runtime.Symbol)CUP$Sintactico$stack.peek()).right;
 		Object b = (Object)((java_cup.runtime.Symbol) CUP$Sintactico$stack.peek()).value;
 		
-
+declara=a+"="+b;
 a=a+"="+b;
 RESULT=a;
 

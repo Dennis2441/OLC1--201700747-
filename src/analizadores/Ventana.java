@@ -61,6 +61,11 @@ public class Ventana extends javax.swing.JFrame {
         jScrollPane1.setViewportView(txtResultado);
 
         golang.setText("Golang");
+        golang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                golangActionPerformed(evt);
+            }
+        });
 
         py.setText("Python");
         py.addActionListener(new java.awt.event.ActionListener() {
@@ -189,6 +194,7 @@ public class Ventana extends javax.swing.JFrame {
 
     private void pyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pyActionPerformed
         // TODO add your handling code here:
+         traduccion.setText("");
         String aux="";
         String tab="\t";
      String pythons  = python;
@@ -203,6 +209,20 @@ public class Ventana extends javax.swing.JFrame {
         // TODO add your handling code here:
         traduccion.setText("");
     }//GEN-LAST:event_golang1ActionPerformed
+
+    private void golangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_golangActionPerformed
+        // TODO add your handling code here:
+        traduccion.setText("");
+        String aux="";
+        String tab="\t";
+     String pythons  = goolan;
+     pythons = pythons.replaceAll("\n", "$0  ");
+     char quote='"';
+        aux="package main"+"\n"+" import(\n" +
+quote+"math"+quote+"\n"+quote+"ftm"+quote+"\n"+
+")"+"\n"+"func main(){"+pythons+"}\n";
+        traduccion.setText(aux);
+    }//GEN-LAST:event_golangActionPerformed
 
     /**
      * @param args the command line arguments
