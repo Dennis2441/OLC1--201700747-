@@ -475,7 +475,19 @@ for (int i = 0; i < contador; i++) {
 CONDICIONAL_MULTIPLE::=
 
 Segun EXPRESION:a{:
+if(contador2==1){
+tab3="";
+Ventana.goolan=Ventana.goolan+tab3;
 
+}else{
+Ventana.goolan=Ventana.goolan+tab3;
+tab3="";       for (int i = 0; i < contador2; i++) {
+            tab3=tab3+"   ";   
+}
+}
+contador2=contador2+1;
+
+Ventana.goolan=Ventana.goolan+"switch"+a+"{"+"\n";
 System.out.println("entroooooo");
 
 
@@ -488,7 +500,23 @@ System.out.println(a);
 System.out.println(Ventana.python);
 
 :}
+
 |Fin_segun{:
+contador2=contador2-2;
+if(contador2==-1){
+tab="";
+Ventana.goolan=Ventana.goolan+'}'+"\n";
+}
+else{ 
+
+tab3="";
+       for (int i = 0; i < contador2; i++) {
+            tab3=tab3+"   ";   
+
+}contador2=contador2+1;
+}
+
+
 if(contador==1){
 
 }else{
@@ -512,6 +540,21 @@ tab="";
 |
 
 interc EXPRESION:a {:
+
+if(contador2==1){
+tab3="";
+Ventana.goolan=Ventana.goolan+tab3;
+
+}else{
+Ventana.goolan=Ventana.goolan+tab3;
+tab3="";       for (int i = 0; i < contador2; i++) {
+            tab3=tab3+"   ";   
+}
+}
+contador2=contador2+1;
+
+Ventana.goolan=Ventana.goolan+"case"+a+":"+"\n";
+
 contadorsegun=contadorsegun+1;
 if(contador==1){ 
 
@@ -539,6 +582,48 @@ Ventana.python=Ventana.python+"if x=="+a+":"+"\n";
 }else{
 Ventana.python=Ventana.python+"elif x=="+a+":"+"\n";
 }
+:}
+|
+
+De_lo_contrario {:
+if(contador2==1){
+tab3="";
+Ventana.goolan=Ventana.goolan+tab3;
+
+}else{
+Ventana.goolan=Ventana.goolan+tab3;
+tab3="";       for (int i = 0; i < contador2; i++) {
+            tab3=tab3+"   ";   
+}
+}
+contador2=contador2+1;
+
+Ventana.goolan=Ventana.goolan+"default:"+"\n";
+
+
+
+contadorsegun=contadorsegun+1;
+if(contador==1){ 
+
+     tab="";
+Ventana.python=Ventana.python+tab;
+
+for (int i = 0; i < contador; i++) {
+            tab=tab+"   ";   
+}
+}
+
+else {
+
+Ventana.python=Ventana.python+tab;
+tab="";
+
+       for (int i = 0; i < contador; i++) {
+            tab=tab+"   ";   
+}
+}
+contador=contador+1;
+Ventana.python=Ventana.python+"else"+":"+"\n";
 :}
 
 
@@ -617,7 +702,7 @@ for (int i = 0; i < contador2; i++) {
 }
 contador2=contador2+1;
 
-Ventana.goolan=Ventana.goolan+"\n"+"else if "+a+"{"+"\n";
+Ventana.goolan=Ventana.goolan+"\n"+"else if "+a+ " {" + "\n";
 System.out.println(Ventana.goolan);
 
 
@@ -642,6 +727,7 @@ for (int i = 0; i < contador; i++) {
 contador=contador+1;
 Ventana.python=Ventana.python+"elif "+a+":"+"\n";
 System.out.println(Ventana.python);
+
 :}
 |
 Fin_osi:a{:

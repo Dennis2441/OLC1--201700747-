@@ -2,7 +2,19 @@ inicio
 metodo _potenciaManual_ con_parametros (_base_,_hol_,true,"ddw")
 	ingresar _i_ como Numero con_valor 0;
 	ingresar _acumulado_ como Numero con_valor 0;
-	
+	segun _varaux_ hacer
+		#0? entonces
+			imprimir_nl "el valor es mayor a 0 y menos a 2";
+ingresar _i_ como Numero con_valor 0;
+fin_segun
+		#2? entonces
+			imprimir_nl "el valor es mayor a 2";
+ingresar _i_ como Numero con_valor 0;
+	fin_segun
+#3? entonces
+			imprimir_nl "el valor es mayor a 3";
+imprimir _acumulada_;
+fin_segun
 	imprimir _acumulado_;
 	imprimir_nl " Esta es la potencia Manual";	
 fin_metodo
