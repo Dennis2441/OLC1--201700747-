@@ -856,7 +856,9 @@ public class Sintactico extends java_cup.runtime.lr_parser {
 public int contadorelif=1;
 public int contadorsegun=0;
   public String tab="";
+ public String tab3="";
 public String dowh="";
+public String declara="";
 public boolean verswitch,ifbo,dow=false;
 
 
@@ -903,6 +905,8 @@ class CUP$Sintactico$actions {
             {
               Object RESULT =null;
 		   System.out.println(Ventana.python);
+System.out.println(Ventana.goolan);
+
               CUP$Sintactico$result = parser.getSymbolFactory().newSymbol("ini",0, ((java_cup.runtime.Symbol)CUP$Sintactico$stack.elementAt(CUP$Sintactico$top-2)), ((java_cup.runtime.Symbol)CUP$Sintactico$stack.peek()), RESULT);
             }
           return CUP$Sintactico$result;
@@ -1904,6 +1908,8 @@ for (int i = 0; i <contador; i++) {
 		Object b = (Object)((java_cup.runtime.Symbol) CUP$Sintactico$stack.peek()).value;
 		
 
+Ventana.goolan=Ventana.goolan+tab3+"var "+a+","+declara;
+declara="";
 Ventana.python=Ventana.python+tab+a+","+b+"\n";
 
 
@@ -1918,6 +1924,9 @@ Ventana.python=Ventana.python+tab+a+","+b+"\n";
 		int aleft = ((java_cup.runtime.Symbol)CUP$Sintactico$stack.elementAt(CUP$Sintactico$top-4)).left;
 		int aright = ((java_cup.runtime.Symbol)CUP$Sintactico$stack.elementAt(CUP$Sintactico$top-4)).right;
 		String a = (String)((java_cup.runtime.Symbol) CUP$Sintactico$stack.elementAt(CUP$Sintactico$top-4)).value;
+		int pleft = ((java_cup.runtime.Symbol)CUP$Sintactico$stack.elementAt(CUP$Sintactico$top-2)).left;
+		int pright = ((java_cup.runtime.Symbol)CUP$Sintactico$stack.elementAt(CUP$Sintactico$top-2)).right;
+		String p = (String)((java_cup.runtime.Symbol) CUP$Sintactico$stack.elementAt(CUP$Sintactico$top-2)).value;
 		int bleft = ((java_cup.runtime.Symbol)CUP$Sintactico$stack.peek()).left;
 		int bright = ((java_cup.runtime.Symbol)CUP$Sintactico$stack.peek()).right;
 		Object b = (Object)((java_cup.runtime.Symbol) CUP$Sintactico$stack.peek()).value;
@@ -1925,7 +1934,8 @@ Ventana.python=Ventana.python+tab+a+","+b+"\n";
 
 
 
-
+Ventana.goolan=Ventana.goolan+tab3+"var "+a+" "+p+"="+b;
+System.out.println(Ventana.goolan);
 Ventana.python=Ventana.python+tab+a+"="+b+"\n";
 
 
@@ -1944,6 +1954,10 @@ Ventana.python=Ventana.python+tab+a+"="+b+"\n";
 		int bright = ((java_cup.runtime.Symbol)CUP$Sintactico$stack.peek()).right;
 		Object b = (Object)((java_cup.runtime.Symbol) CUP$Sintactico$stack.peek()).value;
 		
+String aux="";
+aux=declara;
+declara="";
+declara=a+","+aux;
 a=a+","+b;
 RESULT=a;
 
@@ -1958,11 +1972,14 @@ RESULT=a;
 		int aleft = ((java_cup.runtime.Symbol)CUP$Sintactico$stack.elementAt(CUP$Sintactico$top-4)).left;
 		int aright = ((java_cup.runtime.Symbol)CUP$Sintactico$stack.elementAt(CUP$Sintactico$top-4)).right;
 		String a = (String)((java_cup.runtime.Symbol) CUP$Sintactico$stack.elementAt(CUP$Sintactico$top-4)).value;
+		int pleft = ((java_cup.runtime.Symbol)CUP$Sintactico$stack.elementAt(CUP$Sintactico$top-2)).left;
+		int pright = ((java_cup.runtime.Symbol)CUP$Sintactico$stack.elementAt(CUP$Sintactico$top-2)).right;
+		String p = (String)((java_cup.runtime.Symbol) CUP$Sintactico$stack.elementAt(CUP$Sintactico$top-2)).value;
 		int bleft = ((java_cup.runtime.Symbol)CUP$Sintactico$stack.peek()).left;
 		int bright = ((java_cup.runtime.Symbol)CUP$Sintactico$stack.peek()).right;
 		Object b = (Object)((java_cup.runtime.Symbol) CUP$Sintactico$stack.peek()).value;
 		
-
+declara=a+" "+p+"="+b;
 a=a+"="+b;
 RESULT=a;
 

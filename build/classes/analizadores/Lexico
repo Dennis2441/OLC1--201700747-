@@ -71,7 +71,7 @@ CHAR=\'(\\\"|\\n|\\t|\\r|\\\\|[^\"])\'
 "ejecutar" {return new Symbol(sym.EJECUTAR,yyline,yychar, yytext());}
 "fin_segun" {return new Symbol(sym.Fin_segun,yyline,yychar, yytext());}
 "fin_case" {return new Symbol(sym.Fin_case,yyline,yychar, yytext());}
-"con incremental" {return new Symbol(sym.INCREMENTAL_case,yyline,yychar, yytext());}
+"con_incremental" {return new Symbol(sym.INCREMENTAL_case,yyline,yychar, yytext());}
 
 ";" {return new Symbol(sym.PTCOMA,yyline,yychar, yytext());}
 "(" {return new Symbol(sym.PARIZQ,yyline,yychar, yytext());} 

@@ -29,7 +29,7 @@ public class sym {
   public static final int Fin_funcion = 63;
   public static final int Fin_case = 9;
   public static final int CORDER = 6;
-  public static final int INCREMENTAL = 17;
+  public static final int INCREMENTAL_case = 17;
   public static final int DIVIDIDO = 13;
   public static final int Retornar = 57;
   public static final int admiracionb = 44;
@@ -95,7 +95,7 @@ public class sym {
   "INGRESAR",
   "intera",
   "interc",
-  "INCREMENTAL",
+  "INCREMENTAL_case",
   "ENTERO",
   "COMO",
   "IMPRIMIR",

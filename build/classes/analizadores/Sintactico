@@ -21,11 +21,13 @@ parser code
 public int contadorelif=1;
 public int contadorsegun=0;
   public String tab="";
+ public String tab3="";
 public String dowh="";
+public String declara="";
 public boolean verswitch,ifbo,dow=false;
 :}
 terminal String PTCOMA,PARIZQ,PARDER,CORIZQ,CORDER,FLECHA,Fin_segun,Fin_case;
-terminal String MAS,MENOS,POR,DIVIDIDO,INGRESAR,intera,interc,INCREMENTAL;
+terminal String MAS,MENOS,POR,DIVIDIDO,INGRESAR,intera,interc,INCREMENTAL_case;
 terminal String ENTERO,COMO,IMPRIMIR,IMPRIMIR_NL,EJECUTAR,Fin_osi,Hasta,menor,mayor;
 terminal String DECIMAL,cHAR,CON_VALOR, Op_booleano,COMA,Mayorigual,menorigual,esiGual,esdifeErente;
 
@@ -54,7 +56,9 @@ precedence right UMENOS;
 start with ini;
 
 ini::=
-INICIO SENTENCIA  FIN{:   System.out.println(Ventana.python);:}
+INICIO SENTENCIA  FIN{:   System.out.println(Ventana.python);
+System.out.println(Ventana.goolan);
+:}
 
 ;
 
@@ -528,15 +532,18 @@ for (int i = 0; i <contador; i++) {
 DECLARACION::= 
 INGRESAR iDENTIFICADOR:a COMA DECLARACION1:b {:
 
+Ventana.goolan=Ventana.goolan+tab3+"var "+a+","+declara;
+declara="";
 Ventana.python=Ventana.python+tab+a+","+b+"\n";
 
 :}|
 
-INGRESAR iDENTIFICADOR:a COMO T_dato  CON_VALOR EXPRESION:b   {:
+INGRESAR iDENTIFICADOR:a COMO T_dato:p  CON_VALOR EXPRESION:b   {:
 
 
 
-
+Ventana.goolan=Ventana.goolan+tab3+"var "+a+" "+p+"="+b;
+System.out.println(Ventana.goolan);
 Ventana.python=Ventana.python+tab+a+"="+b+"\n";
 
 :}  
@@ -547,6 +554,10 @@ Ventana.python=Ventana.python+tab+a+"="+b+"\n";
 DECLARACION1::=
  iDENTIFICADOR:a COMA DECLARACION1:b 
 {:
+String aux="";
+aux=declara;
+declara="";
+declara=a+","+aux;
 a=a+","+b;
 RESULT=a;
 :}
@@ -554,9 +565,9 @@ RESULT=a;
 
 |
 
- iDENTIFICADOR:a   COMO T_dato  CON_VALOR EXPRESION:b
+ iDENTIFICADOR:a   COMO T_dato:p  CON_VALOR EXPRESION:b
 {:
-
+declara=a+" "+p+"="+b;
 a=a+"="+b;
 RESULT=a;
 :}
