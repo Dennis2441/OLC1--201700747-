@@ -1845,10 +1845,13 @@ tab3="";
 }
 
 
+
+contador=contador-1;
+contadorsegun=contadorsegun-1;
 if(contador==1){
 
 }else{
-contador=contador-1;
+
 }
 if(contadorsegun==-1){
 verswitch=false;
@@ -1859,7 +1862,7 @@ tab="";
 }else{ 
 
 tab="";
-       for (int i = 0; i < contador; i++) {
+       for (int i = 0; i < contador-1; i++) {
             tab=tab+"   ";   
 }
 }
@@ -1889,6 +1892,7 @@ tab3="";       for (int i = 0; i < contador2; i++) {
 }
 }
 contador2=contador2+1;
+
 
 Ventana.goolan=Ventana.goolan+"case"+a+":"+"\n";
 
