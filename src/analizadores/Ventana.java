@@ -166,6 +166,7 @@ public class Ventana extends javax.swing.JFrame {
             JFrame jFrame = new JFrame();
 
          JOptionPane.showMessageDialog(jFrame,errorlexico);
+         errorlexico="";
         }
         
     }//GEN-LAST:event_py1ActionPerformed

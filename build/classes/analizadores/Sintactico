@@ -412,9 +412,9 @@ tab="";
 contador=contador+1;
 if(verswitch==false){
 verswitch=true;
-Ventana.python=Ventana.python+"if "+a+":"+"\n";
+Ventana.python=Ventana.python+"if x=="+a+":"+"\n";
 }else{
-Ventana.python=Ventana.python+"elif "+a+":"+"\n";
+Ventana.python=Ventana.python+"elif x=="+a+":"+"\n";
 }
 :}
 

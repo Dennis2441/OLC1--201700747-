@@ -1749,9 +1749,9 @@ tab="";
 contador=contador+1;
 if(verswitch==false){
 verswitch=true;
-Ventana.python=Ventana.python+"if "+a+":"+"\n";
+Ventana.python=Ventana.python+"if x=="+a+":"+"\n";
 }else{
-Ventana.python=Ventana.python+"elif "+a+":"+"\n";
+Ventana.python=Ventana.python+"elif x=="+a+":"+"\n";
 }
 
               CUP$Sintactico$result = parser.getSymbolFactory().newSymbol("CONDICIONAL_MULTIPLE",12, ((java_cup.runtime.Symbol)CUP$Sintactico$stack.elementAt(CUP$Sintactico$top-1)), ((java_cup.runtime.Symbol)CUP$Sintactico$stack.peek()), RESULT);

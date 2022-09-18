@@ -85,6 +85,7 @@ CHAR=\'(\\\"|\\n|\\t|\\r|\\\\|[^\"])\'
 "*" {return new Symbol(sym.POR,yyline,yychar, yytext());} 
 "/" {return new Symbol(sym.DIVIDIDO,yyline,yychar, yytext());} 
 "?" {return new Symbol(sym.intera,yyline,yychar, yytext());} 
+"¿" {return new Symbol(sym.interc,yyline,yychar, yytext());} 
 "#" {return new Symbol(sym.interc,yyline,yychar, yytext());} 
 "i" {return new Symbol(sym.admiraciona,yyline,yychar, yytext());} 
 "!" {return new Symbol(sym.admiracionb,yyline,yychar, yytext());} 
