@@ -18,6 +18,7 @@ parser code
     }  
 
  public int contador=1;
+ public int contador2=1;
 public int contadorelif=1;
 public int contadorsegun=0;
   public String tab="";
@@ -149,22 +150,22 @@ RESULT=a;
 |PARDER:a  {:
 
 RESULT=a;
-:}|cADENA:a EXPRESION:b {:
+:}|cADENA:a METODO_EXPRE:b {:
 a=a+b;
 RESULT=a;
-:}|DECIMAL:a EXPRESION:b {:
+:}|DECIMAL:a METODO_EXPRE:b {:
 a=a+b;
 RESULT=a;
-:}|Op_booleano:a EXPRESION:b {:
+:}|Op_booleano:a METODO_EXPRE:b {:
 a=a+b;
 RESULT=a;
 :}|ENTERO:a EXPRESION:b {:
 a=a+b;
 RESULT=a;
-:}| MENOS EXPRESION:b {:
+:}| MENOS METODO_EXPRE:b {:
 String a="-"+b;
 RESULT=a;
-:}|cHAR:a EXPRESION:b {:
+:}|cHAR:a METODO_EXPRE:b {:
 a=a+b;
 RESULT=a;
 :}
@@ -173,6 +174,23 @@ RESULT=a;
 
 CONDICIONAL_FUNCION::=
 Funcion iDENTIFICADOR:a T_dato:b {:
+
+if(contador==2){
+tab3="";
+Ventana.goolan=Ventana.goolan+tab;
+tab3="   ";
+}else{
+
+
+Ventana.goolan=Ventana.goolan+tab3;
+tab3="";
+for (int i = 0; i < contador2; i++) {
+            tab3=tab3+"   ";   
+}
+}
+
+contador2=contador2+1;
+Ventana.goolan=Ventana.goolan+"func"+a+"() "+b+"{"+"\n";
 if(contador==1){
 tab="";
 Ventana.python=Ventana.python+tab;
@@ -194,6 +212,24 @@ Ventana.python=Ventana.python+"def "+a+"()"+":"+"\n";
 |
 
 Funcion iDENTIFICADOR:a T_dato:c Con_parametros METODO_EXPRE:b{:
+if(contador==2){
+tab3="";
+Ventana.goolan=Ventana.goolan+tab;
+tab3="   ";
+}else{
+
+
+Ventana.goolan=Ventana.goolan+tab3;
+tab3="";
+for (int i = 0; i < contador2; i++) {
+            tab3=tab3+"   ";   
+}
+}
+
+contador2=contador2+1;
+Ventana.goolan=Ventana.goolan+"func"+a+b+" "+c+"{"+"\n";
+
+
 if(contador==1){
 tab="";
 Ventana.python=Ventana.python+tab;
@@ -213,6 +249,17 @@ Ventana.python=Ventana.python+"def "+a+""+b+":"+"\n";
 :}
 
 |Fin_funcion{:
+contador2=contador2-1;
+if(contador2==1){
+tab3="";
+}else{
+tab3="";
+for (int i = 0; i < contador2; i++) {
+            tab3=tab3+"   ";   
+}
+}
+
+
 contador=contador-1;
  if(contador==1){
 tab="";
@@ -230,6 +277,23 @@ tab="";
 
 CONDICIONAL_METODO::=
 Metodo iDENTIFICADOR:a Con_parametros METODO_EXPRE:b{:
+if(contador==2){
+tab3="";
+Ventana.goolan=Ventana.goolan+tab;
+tab3="   ";
+}else{
+
+
+Ventana.goolan=Ventana.goolan+tab3;
+tab3="";
+for (int i = 0; i < contador2; i++) {
+            tab3=tab3+"   ";   
+}
+}
+
+contador2=contador2+1;
+Ventana.goolan=Ventana.goolan+"func"+a+b+"{"+"\n";
+
 if(contador==1){
 tab="";
 Ventana.python=Ventana.python+tab;
@@ -251,6 +315,24 @@ Ventana.python=Ventana.python+"def "+a+""+b+":"+"\n";
 |
 
 Metodo iDENTIFICADOR:a {:
+if(contador==2){
+tab3="";
+Ventana.goolan=Ventana.goolan+tab;
+tab3="   ";
+}else{
+
+
+Ventana.goolan=Ventana.goolan+tab3;
+tab3="";
+for (int i = 0; i < contador2; i++) {
+            tab3=tab3+"   ";   
+}
+}
+
+contador2=contador2+1;
+Ventana.goolan=Ventana.goolan+"func"+a+"(){"+"\n";
+
+
 if(contador==1){
 tab="";
 Ventana.python=Ventana.python+tab;
@@ -269,6 +351,17 @@ contador=contador+1;
 Ventana.python=Ventana.python+"def "+a+"()"+":"+"\n";
 :}
 |Fin_metodo{:
+contador2=contador2-1;
+if(contador2==1){
+tab3="";
+
+}else{
+tab3="";
+for (int i = 0; i < contador2; i++) {
+            tab3=tab3+"   ";   
+}
+}
+
 contador=contador-1;
  if(contador==1){
 tab="";
@@ -304,6 +397,20 @@ Repetir:a{:
 
 CONDICIONAL_WHILE::=
 Mientras EXPRESION:a {:
+if(contador==2){
+tab3="";
+Ventana.goolan=Ventana.goolan+tab3;
+tab3="" ;
+}else{
+Ventana.goolan=Ventana.goolan+tab3;
+tab3="";
+for (int i = 0; i < contador2; i++) {
+            tab3=tab3+"   ";   
+}
+}
+
+contador2=contador2+1;
+Ventana.goolan=Ventana.goolan+"for true{"+"\n"+"  if"+a+"{"+"\n"+"  break"+"\n"+"}"+"\n";
 
 if(contador==1){
 tab="";
@@ -323,6 +430,18 @@ System.out.println(Ventana.python);
 :}
 
 |Fin_mientras:a{:
+
+contador2=contador2-1;
+if(contador2==1){
+tab3="";
+}else{
+tab3="";
+for (int i = 0; i < contador2; i++) {
+            tab3=tab3+"   ";   
+}
+}
+
+Ventana.goolan=Ventana.goolan+"}"+"\n";
 String hola=a;
 contador=contador-1;
  if(contador==1){
@@ -435,6 +554,26 @@ Ventana.python=Ventana.python+"elif x=="+a+":"+"\n";
 CONDICIONAL_IF::=
 Condicional_si EXPRESION:a {:
 
+if(contador2==1){
+tab3="";
+Ventana.goolan=Ventana.goolan+tab3;
+tab3=""  ;
+}else{
+Ventana.goolan=Ventana.goolan+tab3;
+tab3="";
+for (int i = 0; i < contador2; i++) {
+            tab3=tab3+"   ";   
+}
+
+
+}
+contador2=contador2+1;
+
+Ventana.goolan=Ventana.goolan+"\n"+"if"+a+"{"+"\n";
+System.out.println(Ventana.goolan);
+
+
+
 if (contador==1){
 tab="";
 Ventana.python=Ventana.python+tab;
@@ -464,6 +603,24 @@ System.out.println(Ventana.python);
 :}|
 O_si EXPRESION:a{:
 
+if(contador2==2){
+tab3="";
+Ventana.goolan=Ventana.goolan+tab3;
+tab3=""  ;
+}else{
+
+Ventana.goolan=Ventana.goolan+tab3;
+tab3="";
+for (int i = 0; i < contador2; i++) {
+            tab3=tab3+"   ";   
+}
+}
+contador2=contador2+1;
+
+Ventana.goolan=Ventana.goolan+"\n"+"else if "+a+"{"+"\n";
+System.out.println(Ventana.goolan);
+
+
 if(contador==2){
 
 tab="";
@@ -488,6 +645,23 @@ System.out.println(Ventana.python);
 :}
 |
 Fin_osi:a{:
+
+contador2=contador2-1;
+tab3="";
+if(contador2==1){
+tab3="  ";
+
+}else{
+for (int i = 0; i < contador2; i++) {
+            tab3=tab3+"   ";   
+}
+}
+
+
+
+Ventana.goolan=Ventana.goolan+"}"+"\n";
+
+
 contador=contador-1;
 tab="";
 if(contador==2){
@@ -507,6 +681,18 @@ for (int i = 0; i < contador; i++) {
 :}
 |
 Fin_si:a {:
+
+contador2=contador2-1;
+if(contador2==1){
+tab3="";
+
+}else{
+for (int i = 0; i < contador2; i++) {
+            tab3=tab3+"   ";   
+}
+}
+
+Ventana.goolan=Ventana.goolan+"}"+"\n";
 
 if(contador==1){
 tab="";

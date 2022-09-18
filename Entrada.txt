@@ -1,8 +1,10 @@
 inicio
-si _varB_ entonces
-	va->4;
-	ingresar _varaux_,v79 como Numero con_valor _variable1_2,6;
+metodo _potenciaManual_ con_parametros (_base_,_hol_,true,"ddw")
+	ingresar _i_ como Numero con_valor 0;
+	ingresar _acumulado_ como Numero con_valor 0;
 	
-fin_si
+	imprimir _acumulado_;
+	imprimir_nl " Esta es la potencia Manual";	
+fin_metodo
 ¿
 fin
