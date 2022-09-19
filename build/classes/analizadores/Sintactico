@@ -47,7 +47,7 @@ non terminal OPERACIONES,OPERACION;
 non terminal CONDICIONAL_IF;
 non terminal CONDICIONAL_MULTIPLE;
 non terminal CONDICIONAL_FOR;
-non terminal CONDICIONAL_WHILE;
+non terminal CONDICIONAL_WHILE,COMENTARIO2;
 non terminal CONDICIONAL_DOWHILE,CONDICIONAL_METODO,CONDICIONAL_FUNCION;
 non terminal IF_ELSE,EXPRESION,METODO_EXPRE,COMENTARIO,RETURN,LLAMADA;
 
@@ -117,6 +117,20 @@ IMPRESION
 ;
 
 COMENTARIO::=
+cM_MULT:a {:
+String hola=a;
+String comilla="\"";
+Ventana.python=Ventana.python+tab+hola.replace("/*", comilla).replace("*/", comilla)+"\n";
+Ventana.python=Ventana.python+tab+hola+"\n";
+:}
+|
+
+cM_LINE:a {:
+String hola=a;
+Ventana.python=Ventana.python+tab+hola.replace("//", "#")+"\n";
+Ventana.python=Ventana.python+tab+hola+"\n";
+
+:}
 
 
 ;
@@ -1094,14 +1108,7 @@ RESULT=a;
 
 EXPRESION::=
 
-cM_MULT:a {:
-RESULT=a;
-:}
-|cM_LINE:a {:
-RESULT=a;
-:}
-
-|ENTERO:a EXPRESION:b {:
+ENTERO:a EXPRESION:b {:
 a=a+b;
 RESULT=a;
 :}
@@ -1119,7 +1126,7 @@ RESULT=a;
 :}
 
 |Modulo:a EXPRESION:b {:
-a=a+b;
+a="%"+b;
 RESULT=a;
 :}
 
