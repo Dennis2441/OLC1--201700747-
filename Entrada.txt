@@ -2,4 +2,5 @@ inicio
 para _i_->0 hasta _exponente_-1 hacer
 		_acumulado_ -> _acumulado_ + _acumulado_;
 	fin_para	
+¿
 fin
