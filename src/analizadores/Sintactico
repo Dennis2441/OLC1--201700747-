@@ -116,7 +116,10 @@ IMPRESION
 
 ;
 
+COMENTARIO::=
 
+
+;
 IMPRESION::=
 IMPRIMIR EXPRESION:a{:
 
@@ -1150,7 +1153,7 @@ RESULT=aa;
 
 
 |Potencia:a EXPRESION:b {:
-a=a+b;
+a="**"+b;
 RESULT=a;
 :}
 
