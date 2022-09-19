@@ -1,6 +1,7 @@
 package analizadores;
 import java_cup.runtime.Symbol; 
 import analizadores.Ventana;
+
 %% 
 %class Lexico
 %public 
@@ -12,6 +13,7 @@ import analizadores.Ventana;
 %{ 
    
     public String consola  = "";
+public static Lista lista1= new Lista();
 %}
 %init{ 
     yyline = 1; 
@@ -123,4 +125,6 @@ CHAR=\'(\\\"|\\n|\\t|\\r|\\\\|[^\"])\'
     ", en la linea: "+yyline+", en la columna: "+yychar);
         Ventana.errorlexico=Ventana.errorlexico+"Este es un error lexico: "+yytext()+
     ", en la linea: "+yyline+", en la columna: "+yychar+"\n";
+
+lista1.agregarAlInicio("error", yytext(), yychar, yyline);
 }

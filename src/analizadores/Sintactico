@@ -10,6 +10,10 @@ parser code
     public void syntax_error(Symbol s){ 
         System.out.println("Error Sintáctico en la Línea " + (s.left) +
         " Columna "+s.right+ ". No se esperaba este componente: " +s.value+"."); 
+Ventana.errorsi="Error Sintáctico en la Línea " + (s.left) +
+        " Columna "+s.right+ ". No se esperaba este componente: " +s.value+".";
+String convertedToString = String.valueOf(s.value);
+lista2.agregarAlInicio("Error",convertedToString,s.right,s.left);
     } 
   public void unrecovered_syntax_error(Symbol s) throws java.lang.Exception{ 
         System.out.println("Error síntactico irrecuperable en la Línea " + 
@@ -28,6 +32,7 @@ public String declara="";
 public boolean verswitch,ifbo,dow=false;
 public String dowhile="";
 public String dowhile2="";
+public static Lista lista2= new Lista();
 :}
 terminal String PTCOMA,PARIZQ,PARDER,CORIZQ,CORDER,FLECHA,Fin_segun,Fin_case,Igual,CON;
 terminal String MAS,MENOS,POR,DIVIDIDO,INGRESAR,intera,interc,INCREMENTAL;

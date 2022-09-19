@@ -14,6 +14,9 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import proyectocupjlexwindows.ProyectoCupJlexWindows;
+import analizadores.Lexico;
+import analizadores.Sintactico;
+import java.awt.Desktop;
 /**
  *
  * @author denni
@@ -28,6 +31,7 @@ public class Ventana extends javax.swing.JFrame {
     public static String variable="";
    public static  String pathi="";
    public static String errorlexico="";
+    public static String errorsi="";
     public Ventana() {
         initComponents();
     }
@@ -53,6 +57,8 @@ public class Ventana extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
+        jMenu5 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -100,11 +106,37 @@ public class Ventana extends javax.swing.JFrame {
         });
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Report");
+        jMenu2.setText("Report Lexico");
+        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu2MouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setText("View");
+        jMenu3.setText("Reporte Sintactico");
+        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu3MouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jMenu3);
+
+        jMenu4.setText("Manual Usuario");
+        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu4MouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenu4);
+
+        jMenu5.setText("Manual Tecnico");
+        jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu5MouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenu5);
 
         setJMenuBar(jMenuBar1);
 
@@ -173,6 +205,15 @@ public class Ventana extends javax.swing.JFrame {
          JOptionPane.showMessageDialog(jFrame,errorlexico);
          errorlexico="";
         }
+        if (errorsi=="") {
+            
+        }else{
+            JFrame jFrame = new JFrame();
+
+         JOptionPane.showMessageDialog(jFrame,errorsi);
+         errorsi="";
+        }
+        
         
     }//GEN-LAST:event_py1ActionPerformed
 
@@ -224,6 +265,66 @@ quote+"math"+quote+"\n"+quote+"ftm"+quote+"\n"+
         traduccion.setText(aux);
     }//GEN-LAST:event_golangActionPerformed
 
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+        // TODO add your handling code here:
+        JFrame jFrame = new JFrame();
+                
+               if ( Lexico.lista1.listar()==false) {
+                   
+                     JOptionPane.showMessageDialog(jFrame,"Hacer Recorrido ");
+            
+        } else {
+                   try {
+     File path = new File ("errorlexico.pdf");
+     Desktop.getDesktop().open(path);
+}catch (IOException ex) {
+     ex.printStackTrace();
+}
+        }
+        
+    }//GEN-LAST:event_jMenu2MouseClicked
+
+    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
+        // TODO add your handling code here:
+        JFrame jFrame = new JFrame();
+                
+               if ( Sintactico.lista2.listar2()==false) {
+                   
+                     JOptionPane.showMessageDialog(jFrame,"Hacer Recorrido ");
+            
+        } else {
+                   try {
+     File path = new File ("errorsintactico.pdf");
+     Desktop.getDesktop().open(path);
+}catch (IOException ex) {
+     ex.printStackTrace();
+}
+        }
+        
+    }//GEN-LAST:event_jMenu3MouseClicked
+
+    private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
+        // TODO add your handling code here:
+        
+              try {
+     File path = new File ("usuario.pdf");
+     Desktop.getDesktop().open(path);
+}catch (IOException ex) {
+     ex.printStackTrace();
+}
+    }//GEN-LAST:event_jMenu4MouseClicked
+
+    private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
+        // TODO add your handling code here:
+        
+                try {
+     File path = new File ("TECNICO.pdf");
+     Desktop.getDesktop().open(path);
+}catch (IOException ex) {
+     ex.printStackTrace();
+}
+    }//GEN-LAST:event_jMenu5MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -265,6 +366,8 @@ quote+"math"+quote+"\n"+quote+"ftm"+quote+"\n"+
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

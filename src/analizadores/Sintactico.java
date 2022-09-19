@@ -1118,6 +1118,10 @@ public class Sintactico extends java_cup.runtime.lr_parser {
     public void syntax_error(Symbol s){ 
         System.out.println("Error Sintáctico en la Línea " + (s.left) +
         " Columna "+s.right+ ". No se esperaba este componente: " +s.value+"."); 
+Ventana.errorsi="Error Sintáctico en la Línea " + (s.left) +
+        " Columna "+s.right+ ". No se esperaba este componente: " +s.value+".";
+String convertedToString = String.valueOf(s.value);
+lista2.agregarAlInicio("Error",convertedToString,s.right,s.left);
     } 
   public void unrecovered_syntax_error(Symbol s) throws java.lang.Exception{ 
         System.out.println("Error síntactico irrecuperable en la Línea " + 
@@ -1136,6 +1140,7 @@ public String declara="";
 public boolean verswitch,ifbo,dow=false;
 public String dowhile="";
 public String dowhile2="";
+public static Lista lista2= new Lista();
 
 
 /** Cup generated class to encapsulate user supplied action code.*/

@@ -15,6 +15,7 @@ public class Lexico implements java_cup.runtime.Scanner {
 	private final int YY_EOF = 65537;
  
     public String consola  = "";
+public static Lista lista1= new Lista();
 	private java.io.BufferedReader yy_reader;
 	private int yy_buffer_index;
 	private int yy_buffer_read;
@@ -901,6 +902,7 @@ public class Lexico implements java_cup.runtime.Scanner {
     ", en la linea: "+yyline+", en la columna: "+yychar);
         Ventana.errorlexico=Ventana.errorlexico+"Este es un error lexico: "+yytext()+
     ", en la linea: "+yyline+", en la columna: "+yychar+"\n";
+lista1.agregarAlInicio("error", yytext(), yychar, yyline);
 }
 					case -19:
 						break;
@@ -1167,6 +1169,7 @@ public class Lexico implements java_cup.runtime.Scanner {
     ", en la linea: "+yyline+", en la columna: "+yychar);
         Ventana.errorlexico=Ventana.errorlexico+"Este es un error lexico: "+yytext()+
     ", en la linea: "+yyline+", en la columna: "+yychar+"\n";
+lista1.agregarAlInicio("error", yytext(), yychar, yyline);
 }
 					case -84:
 						break;
@@ -1184,6 +1187,7 @@ public class Lexico implements java_cup.runtime.Scanner {
     ", en la linea: "+yyline+", en la columna: "+yychar);
         Ventana.errorlexico=Ventana.errorlexico+"Este es un error lexico: "+yytext()+
     ", en la linea: "+yyline+", en la columna: "+yychar+"\n";
+lista1.agregarAlInicio("error", yytext(), yychar, yyline);
 }
 					case -87:
 						break;
@@ -1197,6 +1201,7 @@ public class Lexico implements java_cup.runtime.Scanner {
     ", en la linea: "+yyline+", en la columna: "+yychar);
         Ventana.errorlexico=Ventana.errorlexico+"Este es un error lexico: "+yytext()+
     ", en la linea: "+yyline+", en la columna: "+yychar+"\n";
+lista1.agregarAlInicio("error", yytext(), yychar, yyline);
 }
 					case -89:
 						break;
@@ -1210,6 +1215,7 @@ public class Lexico implements java_cup.runtime.Scanner {
     ", en la linea: "+yyline+", en la columna: "+yychar);
         Ventana.errorlexico=Ventana.errorlexico+"Este es un error lexico: "+yytext()+
     ", en la linea: "+yyline+", en la columna: "+yychar+"\n";
+lista1.agregarAlInicio("error", yytext(), yychar, yyline);
 }
 					case -91:
 						break;

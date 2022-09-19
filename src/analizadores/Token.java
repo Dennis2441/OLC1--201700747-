@@ -13,7 +13,9 @@ public class Token {
     private String lexem;
     private int row;
     private int colm;
+    private Token siguiente;
 
+   
     public Token(String type, String lexem, int row, int colm) {
         this.type = type;
         this.lexem = lexem;
@@ -52,5 +54,11 @@ public class Token {
     public void setColm(int colm) {
         this.colm = colm;
     }
-    
+     public Token getSiguiente() {
+        return siguiente;
+    }
+
+    public void setSiguiente(Token siguiente) {
+        this.siguiente = siguiente;
+    }
 }
