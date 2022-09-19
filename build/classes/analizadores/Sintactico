@@ -26,6 +26,7 @@ public int contadorsegun=0;
 public String dowh="";
 public String declara="";
 public boolean verswitch,ifbo,dow=false;
+public String dowhile="";
 :}
 terminal String PTCOMA,PARIZQ,PARDER,CORIZQ,CORDER,FLECHA,Fin_segun,Fin_case;
 terminal String MAS,MENOS,POR,DIVIDIDO,INGRESAR,intera,interc,INCREMENTAL_case;
@@ -71,7 +72,8 @@ DECLARACION:a SENTENCIA
 |
 
 
-DECLARACION|
+DECLARACION|CONDICIONAL_FOR SENTENCIA|
+CONDICIONAL_FOR|
 ASIGNACION SENTENCIA 
  |
    ASIGNACION|
@@ -89,8 +91,7 @@ CONDICIONAL_IF |
 
  CONDICIONAL_MULTIPLE SENTENCIA|
  CONDICIONAL_MULTIPLE|
-CONDICIONAL_FOR SENTENCIA|
-CONDICIONAL_FOR|
+
 CONDICIONAL_WHILE SENTENCIA{:System.out.println(Ventana.python);:}|
 CONDICIONAL_WHILE
 |
@@ -117,10 +118,13 @@ IMPRESION
 
 IMPRESION::=
 IMPRIMIR EXPRESION:a{:
+
+Ventana.goolan=Ventana.goolan+tab3+"fmt.print("+a+") \n";
 Ventana.python=Ventana.python+tab+"print("+a+") \n";
 :}
 |
 IMPRIMIR_NL EXPRESION:a{:
+Ventana.goolan=Ventana.goolan+tab3+"fmt.println("+a+") \n";
 Ventana.python=Ventana.python+tab+"print("+a+") \n";
 :}
 ;
@@ -130,6 +134,8 @@ Ventana.python=Ventana.python+tab+"print("+a+") \n";
 
 LLAMADA::=
 EJECUTAR iDENTIFICADOR:a EXPRESION:b{:
+
+Ventana.goolan=Ventana.goolan+tab3+a+b+""+"\n";
 Ventana.python=Ventana.python+tab+a+b+""+"\n";
 :}
 ;
@@ -142,7 +148,19 @@ RESULT=a;
 a=a+b;
 RESULT=a;
 :}
+|T_dato:a METODO_EXPRE:b{:
+a=" "+a+b;
+RESULT=a;
+:}
 |PARIZQ:a METODO_EXPRE:b {:
+a=a+b;
+RESULT=a;
+:}
+|menor:a METODO_EXPRE:b {:
+a=a+b;
+RESULT=a;
+:}
+|mayor:a METODO_EXPRE:b {:
 a=a+b;
 RESULT=a;
 :}
@@ -159,7 +177,7 @@ RESULT=a;
 :}|Op_booleano:a METODO_EXPRE:b {:
 a=a+b;
 RESULT=a;
-:}|ENTERO:a EXPRESION:b {:
+:}|ENTERO:a METODO_EXPRE:b {:
 a=a+b;
 RESULT=a;
 :}| MENOS METODO_EXPRE:b {:
@@ -354,7 +372,7 @@ Ventana.python=Ventana.python+"def "+a+"()"+":"+"\n";
 contador2=contador2-1;
 if(contador2==1){
 tab3="";
-
+Ventana.goolan=Ventana.goolan+"}"+"\n";
 }else{
 tab3="";
 for (int i = 0; i < contador2; i++) {
@@ -382,13 +400,69 @@ tab="";
 RETURN::=
 
 Retornar EXPRESION:a{:
+Ventana.goolan=Ventana.goolan+tab3+"return"+a+"\n";
 Ventana.python=Ventana.python+tab+"return"+a+"\n";
 :}
 ;
 
 CONDICIONAL_DOWHILE::=
 Repetir:a{:
-            dow=true;
+
+if(contador2==1){
+
+tab3="";
+Ventana.goolan=Ventana.goolan+tab3;
+}else{
+Ventana.goolan=Ventana.goolan+tab3;
+tab3="";
+for (int i = 0; i < contador2; i++) {
+            tab3=tab3+"   ";   
+}
+
+}
+if(contador==1){
+
+tab="";
+Ventana.python=Ventana.python+tab;
+}else{
+Ventana.python=Ventana.python+tab;
+tab="";
+for (int i = 0; i < contador; i++) {
+            tab=tab+"   ";   
+}
+
+}
+dowhile=Ventana.goolan;
+            Ventana.goolan="";
+:}
+
+|Hasta_que METODO_EXPRE:a{:
+
+String aux="";
+aux=Ventana.goolan;
+Ventana.goolan="";
+Ventana.goolan="for true{"+"\n"+"   if"+a+"{"+"\n"+"  break"+"\n"+"}"+" "+aux+"\n"+"}";
+
+contador2=contador2-1;
+contador=contador-1;
+if(contador==1){
+tab="";
+}else{
+tab="";
+for (int i = 0; i < contador; i++) {
+            tab=tab+"   ";   
+}
+}
+
+if(contador2==1){
+tab3="";
+}else{
+tab3="";
+for (int i = 0; i < contador2; i++) {
+            tab3=tab3+"   ";   
+}
+}
+
 :}
 ;
 
@@ -460,16 +534,40 @@ System.out.println(Ventana.python);
 ;
 
 CONDICIONAL_FOR::=
-Para EXPRESION:a FLECHA EXPRESION:b Hasta EXPRESION:c {:
-Ventana.python=Ventana.python+"for "+a;
-contador=contador+1;
+Para iDENTIFICADOR:a FLECHA EXPRESION:b  EXPRESION:c {:
 
-for (int i = 0; i < contador; i++) {
-            tab=tab+"   ";   
+contador2=contador2+1;
+if(contador2==1){
+tab3="";
+Ventana.goolan=Ventana.goolan+tab3;
+tab3="   ";
+}else{
+Ventana.goolan=Ventana.goolan+tab3;
+tab3="";
+for (int i = 0; i < contador2; i++) {
+            tab3=tab3+"   ";   
 }
+}
+contador=contador+1;
+Ventana.goolan=Ventana.goolan+"for "+a+";"+b+";"+c+"{"+"\n";
 
 
 :}
+|Fin_para:a {:
+contador2=contador2-1;
+if(contador2==1){
+tab3="";
+}else{
+Ventana.goolan=Ventana.goolan+tab3;
+tab3="";
+for (int i = 0; i < contador2; i++) {
+            tab3=tab3+"   ";   
+}
+}
+
+Ventana.goolan=Ventana.goolan+tab3+"}";
+
+:} 
 ;
 
 CONDICIONAL_MULTIPLE::=
@@ -499,11 +597,52 @@ System.out.println(a);
 
 System.out.println(Ventana.python);
 
+:}|
+
+De_lo_contrario Entonces {:
+if(contador2==1){
+tab3="";
+Ventana.goolan=Ventana.goolan+tab3;
+
+}else{
+Ventana.goolan=Ventana.goolan+tab3;
+tab3="";       for (int i = 0; i < contador2; i++) {
+            tab3=tab3+"   ";   
+}
+}
+contador2=contador2+1;
+
+Ventana.goolan=Ventana.goolan+"default:"+"\n";
+
+
+
+contadorsegun=contadorsegun+1;
+if(contador==1){ 
+
+     tab="";
+Ventana.python=Ventana.python+tab;
+
+for (int i = 0; i < contador; i++) {
+            tab=tab+"   ";   
+}
+}
+
+else {
+
+Ventana.python=Ventana.python+tab;
+tab="";
+
+       for (int i = 0; i < contador; i++) {
+            tab=tab+"   ";   
+}
+}
+contador=contador+1;
+Ventana.python=Ventana.python+"else"+":"+"\n";
 :}
 
 |Fin_segun{:
 contador2=contador2-2;
-if(contador2==-1){
+if(contador2==1){
 tab="";
 Ventana.goolan=Ventana.goolan+'}'+"\n";
 }
@@ -587,48 +726,9 @@ Ventana.python=Ventana.python+"if x=="+a+":"+"\n";
 Ventana.python=Ventana.python+"elif x=="+a+":"+"\n";
 }
 :}
-|
-
-De_lo_contrario {:
-if(contador2==1){
-tab3="";
-Ventana.goolan=Ventana.goolan+tab3;
-
-}else{
-Ventana.goolan=Ventana.goolan+tab3;
-tab3="";       for (int i = 0; i < contador2; i++) {
-            tab3=tab3+"   ";   
-}
-}
-contador2=contador2+1;
-
-Ventana.goolan=Ventana.goolan+"default:"+"\n";
 
 
 
-contadorsegun=contadorsegun+1;
-if(contador==1){ 
-
-     tab="";
-Ventana.python=Ventana.python+tab;
-
-for (int i = 0; i < contador; i++) {
-            tab=tab+"   ";   
-}
-}
-
-else {
-
-Ventana.python=Ventana.python+tab;
-tab="";
-
-       for (int i = 0; i < contador; i++) {
-            tab=tab+"   ";   
-}
-}
-contador=contador+1;
-Ventana.python=Ventana.python+"else"+":"+"\n";
-:}
 
 
 ;
@@ -781,8 +881,7 @@ for (int i = 0; i < contador2; i++) {
             tab3=tab3+"   ";   
 }
 }
-
-Ventana.goolan=Ventana.goolan+"}"+"\n";
+Ventana.goolan=Ventana.goolan+'}'+"\n";
 
 if(contador==1){
 tab="";
@@ -800,6 +899,47 @@ for (int i = 0; i <contador; i++) {
 }
 
    
+:} 
+
+|De_lo_contrario:a{:
+if(contador2==1){
+tab3="";
+Ventana.goolan=Ventana.goolan+tab3;
+
+}else{
+Ventana.goolan=Ventana.goolan+tab3;
+tab3="";       for (int i = 0; i < contador2; i++) {
+            tab3=tab3+"   ";   
+}
+}
+contador2=contador2+1;
+
+Ventana.goolan=Ventana.goolan+"default:"+"\n";
+
+
+
+
+if(contador==1){ 
+
+     tab="";
+Ventana.python=Ventana.python+tab;
+
+for (int i = 0; i < contador; i++) {
+            tab=tab+"   ";   
+}
+}
+
+else {
+
+Ventana.python=Ventana.python+tab;
+tab="";
+
+       for (int i = 0; i < contador; i++) {
+            tab=tab+"   ";   
+}
+}
+contador=contador+1;
+Ventana.python=Ventana.python+"else"+":"+"\n";
 :}
     
 ;
@@ -896,6 +1036,7 @@ RESULT=a;
 |cM_LINE:a {:
 RESULT=a;
 :}
+
 |ENTERO:a EXPRESION:b {:
 a=a+b;
 RESULT=a;
@@ -1049,6 +1190,10 @@ System.out.println("llego");
 RESULT=b;:}
 |andd:a EXPRESION:b {:
 a=" "+"and "+b;
+RESULT=a;
+:}
+|Hasta:a  {:
+a="";
 RESULT=a;
 :}
 

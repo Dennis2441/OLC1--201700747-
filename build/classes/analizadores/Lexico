@@ -97,6 +97,7 @@ CHAR=\'(\\\"|\\n|\\t|\\r|\\\\|[^\"])\'
 "int" {return new Symbol(sym.T_dato,yyline,yychar, yytext());}
 "caracter" {return new Symbol(sym.T_dato,yyline,yychar, yytext());}
 "numero" {return new Symbol(sym.T_dato,yyline,yychar, yytext());}
+
 "cadena" {return new Symbol(sym.T_dato,yyline,yychar, yytext());}
 "boolean" {return new Symbol(sym.T_dato,yyline,yychar, yytext());}
 "verdadero" {return new Symbol(sym.Op_booleano,yyline,yychar, yytext());} 
