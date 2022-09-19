@@ -38,10 +38,12 @@ CHAR=\'(\\\"|\\n|\\t|\\r|\\\\|[^\"])\'
 "menor_o_igual" {return new Symbol(sym.menorigual,yyline,yychar, yytext());}
 " es_iGual" {return new Symbol(sym.esiGual,yyline,yychar, yytext());}
 "es_difeErente" {return new Symbol(sym.esdifeErente,yyline,yychar, yytext());}
-
+"igual" {return new Symbol(sym.Igual,yyline,yychar, yytext());}
+"=" {return new Symbol(sym.Igual,yyline,yychar, yytext());}
 "ingresar" {return new Symbol(sym.INGRESAR,yyline,yychar, yytext());}
 "como" {return new Symbol(sym.COMO,yyline,yychar, yytext());}
 " con_valor" {return new Symbol(sym.CON_VALOR,yyline,yychar, yytext());}
+" con" {return new Symbol(sym.CON,yyline,yychar, yytext());}
 "potencia" {return new Symbol(sym.Potencia,yyline,yychar, yytext());}
 "mod" {return new Symbol(sym.Modulo,yyline,yychar, yytext());}
 "Si" {return new Symbol(sym.Condicional_si,yyline,yychar, yytext());}
@@ -71,7 +73,7 @@ CHAR=\'(\\\"|\\n|\\t|\\r|\\\\|[^\"])\'
 "ejecutar" {return new Symbol(sym.EJECUTAR,yyline,yychar, yytext());}
 "fin_segun" {return new Symbol(sym.Fin_segun,yyline,yychar, yytext());}
 "fin_case" {return new Symbol(sym.Fin_case,yyline,yychar, yytext());}
-"con_incremental" {return new Symbol(sym.INCREMENTAL_case,yyline,yychar, yytext());}
+"incremental" {return new Symbol(sym.INCREMENTAL,yyline,yychar, yytext());}
 
 ";" {return new Symbol(sym.PTCOMA,yyline,yychar, yytext());}
 "(" {return new Symbol(sym.PARIZQ,yyline,yychar, yytext());} 
