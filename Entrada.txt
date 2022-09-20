@@ -1,7 +1,20 @@
 inicio
 
-para _i_->0 hasta _exponente_-1 hacer
-		_acumulado_ -> _acumulado_ + _acumulado_;
-	fin_para
+segun HOLA hacer
+¿ 1 ? entonces
+va->7;
+fin_segun
+¿ 2 ? entonces
+va->8;
+fin_segun
+¿ 3? entonces
+va->9;
+fin_segun
+de_lo_contrario entonces
+va->10;
+fin_segun
+
+fin_segun
+
 
 fin

@@ -31,6 +31,7 @@ CM_LINE =  "//".*
 IDENTIFICADOR=[_a-zA-Z][_a-zA-Z0-9]*
 CADENA=\"(\\\"|\\n|\\t|\\r|\\\\|[^\"])*\"
 CHAR=\'(\\\"|\\n|\\t|\\r|\\\\|[^\"])\'
+INTERA=\u00BF
 %%
 
 "Evaluar" {return new Symbol(sym.REVALUAR,yyline,yychar,
@@ -90,7 +91,7 @@ CHAR=\'(\\\"|\\n|\\t|\\r|\\\\|[^\"])\'
 "*" {return new Symbol(sym.POR,yyline,yychar, yytext());} 
 "/" {return new Symbol(sym.DIVIDIDO,yyline,yychar, yytext());} 
 "?" {return new Symbol(sym.intera,yyline,yychar, yytext());} 
-"¿" {return new Symbol(sym.HETER,yyline,yychar, yytext());} 
+
 "#" {return new Symbol(sym.interc,yyline,yychar, yytext());} 
 
 "!" {return new Symbol(sym.admiracionb,yyline,yychar, yytext());} 
@@ -119,7 +120,7 @@ CHAR=\'(\\\"|\\n|\\t|\\r|\\\\|[^\"])\'
 {CADENA} {return new Symbol(sym.cADENA,yyline,yychar, yytext());} 
 {IDENTIFICADOR} {return new Symbol(sym.iDENTIFICADOR,yyline,yychar, yytext());} 
 {CHAR}      {return new Symbol(sym.cHAR, yyline, yychar, yytext());}
-
+{INTERA}  {return new Symbol(sym.HETER,yyline,yychar, yytext());} 
 
 . {
     System.out.println("Este es un error lexico: "+yytext()+

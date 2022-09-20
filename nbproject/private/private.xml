@@ -5,9 +5,11 @@
         <group>
             <file>file:/C:/Users/denni/Documents/NetBeansProjects/Proyecto1_2022/src/analizadores/Sintactico</file>
             <file>file:/C:/Users/denni/Documents/NetBeansProjects/Proyecto1_2022/src/analizadores/Lexico</file>
-            <file>file:/C:/Users/denni/Documents/NetBeansProjects/Proyecto1_2022/src/analizadores/lista.java</file>
+            <file>file:/C:/Users/denni/Documents/NetBeansProjects/Proyecto1_2022/src/analizadores/Lexico.java</file>
+            <file>file:/C:/Users/denni/Documents/NetBeansProjects/Proyecto1_2022/src/analizadores/Lista.java</file>
             <file>file:/C:/Users/denni/Documents/NetBeansProjects/Proyecto1_2022/src/proyectocupjlexwindows/ProyectoCupJlexWindows.java</file>
             <file>file:/C:/Users/denni/Documents/NetBeansProjects/Proyecto1_2022/src/analizadores/Sintactico.java</file>
+            <file>file:/C:/Users/denni/Documents/NetBeansProjects/Proyecto1_2022/src/analizadores/Ventana.java</file>
             <file>file:/C:/Users/denni/Documents/NetBeansProjects/Proyecto1_2022/src/analizadores/Token.java</file>
         </group>
     </open-files>
