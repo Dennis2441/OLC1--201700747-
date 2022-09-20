@@ -249,6 +249,8 @@ for (int i = 0; i < contador; i++) {
 
 contador=contador+1;
 Ventana.python=Ventana.python+"def "+a+"()"+":"+"\n";
+tab=tab="   ";
+
 :}
 
 |
@@ -288,6 +290,7 @@ for (int i = 0; i < contador; i++) {
 
 contador=contador+1;
 Ventana.python=Ventana.python+"def "+a+""+b+":"+"\n";
+tab=tab="   ";
 :}
 
 |Fin_funcion{:
@@ -353,6 +356,7 @@ for (int i = 0; i < contador; i++) {
 
 contador=contador+1;
 Ventana.python=Ventana.python+"def "+a+""+b+":"+"\n";
+tab=tab+"   ";
 :}
 
 |
@@ -392,6 +396,7 @@ for (int i = 0; i < contador; i++) {
 
 contador=contador+1;
 Ventana.python=Ventana.python+"def "+a+"()"+":"+"\n";
+tab=tab+"   ";
 :}
 |Fin_metodo{:
 contador2=contador2-1;
@@ -827,9 +832,9 @@ CONDICIONAL_IF::=
 Condicional_si EXPRESION:a {:
 
 if(contador2==1){
-tab3="";
+
 Ventana.goolan=Ventana.goolan+tab3;
-tab3=""  ;
+tab3="  ";
 }else{
 Ventana.goolan=Ventana.goolan+tab3;
 tab3="";

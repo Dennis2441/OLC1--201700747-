@@ -1163,6 +1163,7 @@ public boolean verswitch,ifbo,dow=false;
 public String dowhile="";
 public String dowhile2="";
 public static Lista lista2= new Lista();
+public String pote="";
 
 
 /** Cup generated class to encapsulate user supplied action code.*/
@@ -1830,6 +1831,8 @@ for (int i = 0; i < contador; i++) {
 
 contador=contador+1;
 Ventana.python=Ventana.python+"def "+a+"()"+":"+"\n";
+tab=tab="   ";
+
 
               CUP$Sintactico$result = parser.getSymbolFactory().newSymbol("CONDICIONAL_FUNCION",18, ((java_cup.runtime.Symbol)CUP$Sintactico$stack.elementAt(CUP$Sintactico$top-2)), ((java_cup.runtime.Symbol)CUP$Sintactico$stack.peek()), RESULT);
             }
@@ -1883,6 +1886,7 @@ for (int i = 0; i < contador; i++) {
 
 contador=contador+1;
 Ventana.python=Ventana.python+"def "+a+""+b+":"+"\n";
+tab=tab="   ";
 
               CUP$Sintactico$result = parser.getSymbolFactory().newSymbol("CONDICIONAL_FUNCION",18, ((java_cup.runtime.Symbol)CUP$Sintactico$stack.elementAt(CUP$Sintactico$top-4)), ((java_cup.runtime.Symbol)CUP$Sintactico$stack.peek()), RESULT);
             }
@@ -1964,6 +1968,7 @@ for (int i = 0; i < contador; i++) {
 
 contador=contador+1;
 Ventana.python=Ventana.python+"def "+a+""+b+":"+"\n";
+tab=tab+"   ";
 
               CUP$Sintactico$result = parser.getSymbolFactory().newSymbol("CONDICIONAL_METODO",17, ((java_cup.runtime.Symbol)CUP$Sintactico$stack.elementAt(CUP$Sintactico$top-3)), ((java_cup.runtime.Symbol)CUP$Sintactico$stack.peek()), RESULT);
             }
@@ -2011,6 +2016,7 @@ for (int i = 0; i < contador; i++) {
 
 contador=contador+1;
 Ventana.python=Ventana.python+"def "+a+"()"+":"+"\n";
+tab=tab+"   ";
 
               CUP$Sintactico$result = parser.getSymbolFactory().newSymbol("CONDICIONAL_METODO",17, ((java_cup.runtime.Symbol)CUP$Sintactico$stack.elementAt(CUP$Sintactico$top-1)), ((java_cup.runtime.Symbol)CUP$Sintactico$stack.peek()), RESULT);
             }
@@ -2558,9 +2564,9 @@ Ventana.python=Ventana.python+"elif x=="+a+":"+"\n";
 		
 
 if(contador2==1){
-tab3="";
+
 Ventana.goolan=Ventana.goolan+tab3;
-tab3=""  ;
+tab3="  ";
 }else{
 Ventana.goolan=Ventana.goolan+tab3;
 tab3="";
@@ -3157,6 +3163,8 @@ RESULT=aa;
 		int bright = ((java_cup.runtime.Symbol)CUP$Sintactico$stack.peek()).right;
 		Object b = (Object)((java_cup.runtime.Symbol) CUP$Sintactico$stack.peek()).value;
 		
+
+
 a="**"+b;
 RESULT=a;
 
