@@ -1,10 +1,7 @@
 inicio
-para  _i_->0 hasta _exponente_-1 hacer
-		_acumulado_ -> _acumulado_ + _acumulado_; //kdskdos
-/* comentario
-de más
-líneas */
-	fin_para	
-¿
-"kjk"
+
+para _i_->0 hasta _exponente_-1 hacer
+		_acumulado_ -> _acumulado_ + _acumulado_;
+	fin_para
+
 fin

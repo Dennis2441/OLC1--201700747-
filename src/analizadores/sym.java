@@ -8,77 +8,78 @@ package analizadores;
 /** CUP generated class containing symbol constants. */
 public class sym {
   /* terminals */
-  public static final int Condicional_si = 48;
-  public static final int Fin_para = 62;
-  public static final int cM_MULT = 70;
-  public static final int Metodo = 53;
+  public static final int INGRESAR = 16;
+  public static final int CON_VALOR = 31;
   public static final int Op_booleano = 32;
-  public static final int Fin_segun = 8;
-  public static final int cADENA = 42;
-  public static final int Mayorigual = 34;
-  public static final int POR = 14;
-  public static final int IMPRIMIR = 22;
-  public static final int ENTERO = 20;
-  public static final int T_dato = 39;
-  public static final int Potencia = 60;
-  public static final int De_lo_contrario = 68;
-  public static final int cHAR = 30;
-  public static final int Fin_mientras = 66;
-  public static final int Repetir = 56;
-  public static final int FIN = 44;
-  public static final int Fin_funcion = 65;
-  public static final int Fin_case = 9;
   public static final int CORDER = 6;
-  public static final int INCREMENTAL = 19;
-  public static final int DIVIDIDO = 15;
-  public static final int Retornar = 59;
-  public static final int admiracionb = 46;
-  public static final int admiraciona = 45;
-  public static final int Para = 49;
-  public static final int andd = 47;
-  public static final int COMO = 21;
-  public static final int UMENOS = 38;
-  public static final int Modulo = 54;
-  public static final int REVALUAR = 40;
-  public static final int menor = 27;
-  public static final int Segun = 51;
-  public static final int Hacer = 52;
-  public static final int EOF = 0;
+  public static final int Hasta = 26;
   public static final int PARIZQ = 3;
-  public static final int DECIMAL = 29;
-  public static final int cM_LINE = 69;
-  public static final int error = 1;
+  public static final int Fin_funcion = 67;
+  public static final int menor = 27;
+  public static final int Para = 51;
+  public static final int PTCOMA = 2;
+  public static final int cM_MULT = 71;
+  public static final int Fin_para = 64;
+  public static final int Fin_segun = 8;
+  public static final int Fin_mientras = 68;
+  public static final int cM_LINE = 70;
+  public static final int INICIO = 44;
+  public static final int Segun = 53;
+  public static final int iDENTIFICADOR = 42;
+  public static final int POR = 14;
+  public static final int menorigual = 35;
+  public static final int Con_parametros = 49;
+  public static final int Fin_metodo = 66;
+  public static final int Mientras = 63;
+  public static final int admiracionb = 47;
+  public static final int admiraciona = 46;
+  public static final int andd = 48;
+  public static final int T_dato = 40;
+  public static final int FLECHA = 7;
+  public static final int Repetir = 58;
+  public static final int cHAR = 30;
+  public static final int COMO = 21;
+  public static final int esdifeErente = 37;
+  public static final int DIVIDIDO = 15;
   public static final int COMA = 33;
-  public static final int Hasta_que = 63;
-  public static final int Funcion = 57;
+  public static final int REVALUAR = 41;
+  public static final int ENTERO = 20;
+  public static final int CORIZQ = 5;
+  public static final int Entonces = 60;
+  public static final int interc = 18;
+  public static final int Condicional_si = 50;
+  public static final int intera = 17;
+  public static final int DECIMAL = 29;
+  public static final int FIN = 45;
+  public static final int IMPRIMIR = 22;
+  public static final int Fin_case = 9;
+  public static final int De_lo_contrario = 69;
+  public static final int PARDER = 4;
   public static final int mayor = 28;
   public static final int MENOS = 13;
-  public static final int esdifeErente = 37;
-  public static final int menorigual = 35;
-  public static final int CON = 11;
-  public static final int CON_VALOR = 31;
-  public static final int esiGual = 36;
-  public static final int FLECHA = 7;
-  public static final int Fin_metodo = 64;
-  public static final int Entonces = 58;
-  public static final int IMPRIMIR_NL = 23;
-  public static final int iDENTIFICADOR = 41;
-  public static final int INGRESAR = 16;
-  public static final int interc = 18;
-  public static final int Con_parametros = 67;
-  public static final int Fin_osi = 25;
-  public static final int intera = 17;
-  public static final int O_si = 50;
-  public static final int PTCOMA = 2;
-  public static final int Mientras = 61;
-  public static final int Fin_si = 55;
-  public static final int INICIO = 43;
-  public static final int PARDER = 4;
-  public static final int Hasta = 26;
-  public static final int CORIZQ = 5;
-  public static final int EJECUTAR = 24;
-  public static final int Igual = 10;
   public static final int MAS = 12;
+  public static final int Mayorigual = 34;
+  public static final int IMPRIMIR_NL = 23;
+  public static final int EOF = 0;
+  public static final int Retornar = 61;
+  public static final int CON = 11;
+  public static final int Metodo = 55;
+  public static final int Hasta_que = 65;
+  public static final int Funcion = 59;
+  public static final int error = 1;
+  public static final int EJECUTAR = 24;
+  public static final int Potencia = 62;
+  public static final int cADENA = 43;
+  public static final int UMENOS = 39;
+  public static final int O_si = 52;
+  public static final int Hacer = 54;
+  public static final int Fin_si = 57;
+  public static final int Modulo = 56;
+  public static final int INCREMENTAL = 19;
+  public static final int Fin_osi = 25;
+  public static final int Igual = 10;
+  public static final int HETER = 38;
+  public static final int esiGual = 36;
   public static final String[] terminalNames = new String[] {
   "EOF",
   "error",
@@ -118,6 +119,7 @@ public class sym {
   "menorigual",
   "esiGual",
   "esdifeErente",
+  "HETER",
   "UMENOS",
   "T_dato",
   "REVALUAR",
@@ -128,6 +130,7 @@ public class sym {
   "admiraciona",
   "admiracionb",
   "andd",
+  "Con_parametros",
   "Condicional_si",
   "Para",
   "O_si",
@@ -147,7 +150,6 @@ public class sym {
   "Fin_metodo",
   "Fin_funcion",
   "Fin_mientras",
-  "Con_parametros",
   "De_lo_contrario",
   "cM_LINE",
   "cM_MULT"

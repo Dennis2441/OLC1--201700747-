@@ -37,11 +37,11 @@ public static Lista lista2= new Lista();
 terminal String PTCOMA,PARIZQ,PARDER,CORIZQ,CORDER,FLECHA,Fin_segun,Fin_case,Igual,CON;
 terminal String MAS,MENOS,POR,DIVIDIDO,INGRESAR,intera,interc,INCREMENTAL;
 terminal String ENTERO,COMO,IMPRIMIR,IMPRIMIR_NL,EJECUTAR,Fin_osi,Hasta,menor,mayor;
-terminal String DECIMAL,cHAR,CON_VALOR, Op_booleano,COMA,Mayorigual,menorigual,esiGual,esdifeErente;
+terminal String DECIMAL,cHAR,CON_VALOR, Op_booleano,COMA,Mayorigual,menorigual,esiGual,esdifeErente,HETER;
 
 terminal String UMENOS,T_dato;
-terminal String REVALUAR,iDENTIFICADOR,cADENA,INICIO,FIN,admiraciona,admiracionb,andd;
-terminal String Condicional_si,Para,O_si,Segun,Hacer,Metodo,Modulo,Fin_si,Repetir,Funcion,Entonces,Retornar,Potencia,Mientras,Fin_para,Hasta_que,Fin_metodo,Fin_funcion,Fin_mientras,Con_parametros,De_lo_contrario,cM_LINE,cM_MULT;
+terminal String REVALUAR,iDENTIFICADOR,cADENA,INICIO,FIN,admiraciona,admiracionb,andd,Con_parametros;
+terminal String Condicional_si,Para,O_si,Segun,Hacer,Metodo,Modulo,Fin_si,Repetir,Funcion,Entonces,Retornar,Potencia,Mientras,Fin_para,Hasta_que,Fin_metodo,Fin_funcion,Fin_mientras,De_lo_contrario,cM_LINE,cM_MULT;
 
 non terminal ini,SENTENCIA,SENTENCIA2;
 
@@ -293,6 +293,7 @@ Ventana.python=Ventana.python+"def "+a+""+b+":"+"\n";
 contador2=contador2-1;
 if(contador2==1){
 tab3="";
+Ventana.goolan=Ventana.goolan+"}";
 }else{
 tab3="";
 for (int i = 0; i < contador2; i++) {

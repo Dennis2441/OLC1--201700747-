@@ -38,14 +38,14 @@ CHAR=\'(\\\"|\\n|\\t|\\r|\\\\|[^\"])\'
 
 "Mayor_o_igual" {return new Symbol(sym.Mayorigual,yyline,yychar, yytext());}
 "menor_o_igual" {return new Symbol(sym.menorigual,yyline,yychar, yytext());}
-" es_iGual" {return new Symbol(sym.esiGual,yyline,yychar, yytext());}
+"es_iGual" {return new Symbol(sym.esiGual,yyline,yychar, yytext());}
 "es_difeErente" {return new Symbol(sym.esdifeErente,yyline,yychar, yytext());}
 "igual" {return new Symbol(sym.Igual,yyline,yychar, yytext());}
 "=" {return new Symbol(sym.Igual,yyline,yychar, yytext());}
 "ingresar" {return new Symbol(sym.INGRESAR,yyline,yychar, yytext());}
 "como" {return new Symbol(sym.COMO,yyline,yychar, yytext());}
-" con_valor" {return new Symbol(sym.CON_VALOR,yyline,yychar, yytext());}
-" con" {return new Symbol(sym.CON,yyline,yychar, yytext());}
+"con_valor" {return new Symbol(sym.CON_VALOR,yyline,yychar, yytext());}
+"con_parametros" {return new Symbol(sym.Con_parametros,yyline,yychar, yytext());}
 "potencia" {return new Symbol(sym.Potencia,yyline,yychar, yytext());}
 "mod" {return new Symbol(sym.Modulo,yyline,yychar, yytext());}
 "Si" {return new Symbol(sym.Condicional_si,yyline,yychar, yytext());}
@@ -70,7 +70,8 @@ CHAR=\'(\\\"|\\n|\\t|\\r|\\\\|[^\"])\'
 "fin_metodo" {return new Symbol(sym.Fin_metodo,yyline,yychar, yytext());}
 "funcion" {return new Symbol(sym.Funcion,yyline,yychar, yytext());}
 "fin_funcion" {return new Symbol(sym.Fin_funcion,yyline,yychar, yytext());}
-"con_parametros" {return new Symbol(sym.Con_parametros,yyline,yychar, yytext());}
+
+"con" {return new Symbol(sym.CON,yyline,yychar, yytext());}
 "inicio" {return new Symbol(sym.INICIO,yyline,yychar, yytext());}
 "ejecutar" {return new Symbol(sym.EJECUTAR,yyline,yychar, yytext());}
 "fin_segun" {return new Symbol(sym.Fin_segun,yyline,yychar, yytext());}
@@ -89,9 +90,9 @@ CHAR=\'(\\\"|\\n|\\t|\\r|\\\\|[^\"])\'
 "*" {return new Symbol(sym.POR,yyline,yychar, yytext());} 
 "/" {return new Symbol(sym.DIVIDIDO,yyline,yychar, yytext());} 
 "?" {return new Symbol(sym.intera,yyline,yychar, yytext());} 
-"¿" {return new Symbol(sym.interc,yyline,yychar, yytext());} 
+"¿" {return new Symbol(sym.HETER,yyline,yychar, yytext());} 
 "#" {return new Symbol(sym.interc,yyline,yychar, yytext());} 
-"i" {return new Symbol(sym.admiraciona,yyline,yychar, yytext());} 
+
 "!" {return new Symbol(sym.admiracionb,yyline,yychar, yytext());} 
 "&&" {return new Symbol(sym.andd,yyline,yychar, yytext());}
 "<" {return new Symbol(sym.menor,yyline,yychar, yytext());}
