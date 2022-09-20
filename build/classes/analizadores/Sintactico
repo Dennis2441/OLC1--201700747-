@@ -33,6 +33,7 @@ public boolean verswitch,ifbo,dow=false;
 public String dowhile="";
 public String dowhile2="";
 public static Lista lista2= new Lista();
+public String pote="";
 :}
 terminal String PTCOMA,PARIZQ,PARDER,CORIZQ,CORDER,FLECHA,Fin_segun,Fin_case,Igual,CON;
 terminal String MAS,MENOS,POR,DIVIDIDO,INGRESAR,intera,interc,INCREMENTAL;
@@ -1164,6 +1165,8 @@ RESULT=aa;
 
 
 |Potencia:a EXPRESION:b {:
+
+
 a="**"+b;
 RESULT=a;
 :}
