@@ -206,7 +206,8 @@ public class Ventana extends javax.swing.JFrame {
          errorlexico="";
         }
         if (errorsi=="") {
-            
+             JFrame jFrame = new JFrame();
+            JOptionPane.showMessageDialog(jFrame,"COmpletado");
         }else{
             JFrame jFrame = new JFrame();
 
