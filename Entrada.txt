@@ -17,4 +17,28 @@ fin_segun
 fin_segun
 
 
+funcion _potenciaFuncion_ Numero con_parametros (_base_ Numero, _exponente_ Numero) 
+	ingresar _potencia_ como Numero con_valor _base_ potencia [_exponente_];
+	retornar _potencia_;
+fin_funcion
+
+metodo _metodo_1_
+	imprimir_nl "estamos entrando al metodo 1";	
+	ejecutar _potenciaManual_(3*1+4/2, 3+2);
+	imprimir ejecutar _potenciaFuncion_(3*1+4/2, 3+2);
+	imprimir_nl " Esta es la potencia Funcion";
+fin_metodo
+
+si _v1_ es_igual _v2_ entonces
+	imprimir_nl "no tiene que imprimir este mensaje";
+		o_si _v1_ es_igual 13 entonces
+		    imprimir_nl "mensaje de prueba";
+fin_si
+		o_si _v1_ es_igual 14 entonces
+		    imprimir_nl "mensaje de prueba";
+fin_si
+	de_lo_contrario
+	    imprimir_nl "este print es un ejemplo";
+fin_si
+fin_si
 fin
